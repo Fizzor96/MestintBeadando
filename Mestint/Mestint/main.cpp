@@ -9,7 +9,9 @@ int main()
     window.setFramerateLimit(60);
     window.setSize(sf::Vector2u(1280, 1024));
     window.setVerticalSyncEnabled(false);
-
+    window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));
+    
+    
     Hanoi* h = new Hanoi();
 
     while (window.isOpen())
