@@ -19,4 +19,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Hanoi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Korong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Oszlop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

@@ -1,11 +1,17 @@
 #include <SFML/Graphics.hpp>
+#include "Hanoi.h"
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-    sf::RectangleShape* rect = new sf::RectangleShape(sf::Vector2f(40.f, 40.f));
-    rect->setFillColor(sf::Color::Green);
+    //Setup
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Mestint Beadando");
+    window.setFramerateLimit(60);
+    window.setSize(sf::Vector2u(1280, 1024));
+    window.setVerticalSyncEnabled(false);
+
+    Hanoi* h = new Hanoi();
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -13,9 +19,14 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Escape)
+            {
+                window.close();
+            }
         }
         window.clear();
-        window.draw(*rect);
+        //Draw here
+        h->Draw(window);
         window.display();
     }
     return 0;
