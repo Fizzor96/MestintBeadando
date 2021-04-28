@@ -1,3 +1,2 @@
 ﻿  main.cpp
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(99): error C4703: potentially uninitialized local pointer variable 's' used
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(99): error C4703: potentially uninitialized local pointer variable 'd' used
+  Mestint.vcxproj -> C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Debug\Mestint.exe
