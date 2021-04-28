@@ -1,0 +1,2 @@
+# MestintBeadando
+ Mesterséges Intelligencia Beadandó
