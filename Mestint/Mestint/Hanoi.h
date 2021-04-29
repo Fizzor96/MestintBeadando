@@ -21,27 +21,8 @@ public:
 	Hanoi()
 	{
 		Init();
-		//Init2();
 		korongszam = GetKorongszam();
 		std::cout << "Osszkorongszam = " << korongszam << std::endl;
-		if (Mozgat(a, a))
-		{
-			std::cout << "Sikeres mozgatas!" << std::endl;
-		}
-		else
-		{
-			std::cout << "Sikertelen mozgatas!" << std::endl;
-		}
-		
-		
-		//Mozgat(b, c);
-		//Mozgat(a, b);
-		//Mozgat(c, a);
-		//Mozgat(c, a);
-		//Mozgat(b, c);
-		//Mozgat(b, c);
-		//Mozgat(a, c);
-		//Mozgat(a, c);
 	}
 
 	~Hanoi() {}
@@ -102,6 +83,7 @@ public:
 					if (d->korongstack.size() == 0)
 					{
 						d->Berak(s->Kivesz());
+						std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
 						return true;
 					}
 					else
@@ -109,6 +91,7 @@ public:
 						if (d->korongstack[d->korongstack.size() - 1]->shape.getSize().x >= s->korongstack[s->korongstack.size() - 1]->shape.getSize().x)
 						{
 							d->Berak(s->Kivesz());
+							std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
 							return true;
 						}
 						else
@@ -139,9 +122,6 @@ public:
 
 	void Init()
 	{
-		std::cout << "-------------------------------" << std::endl;
-		std::cout << "-------------Init--------------" << std::endl;
-		std::cout << "-------------------------------" << std::endl;
 		//Init oszlopok
 		this->oszlopok.push_back(new Oszlop('A', sf::Vector2f(150.f, 500.f)));
 		this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(400.f, 500.f)));
@@ -165,10 +145,6 @@ public:
 		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 100.f));
 		this->oszlopok[1]->Berak(new Korong(sf::Color::Red, 80.f));
 		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 60.f));
-
-		std::cout << "-------------------------------" << std::endl;
-		std::cout << "------------End-Init-----------" << std::endl;
-		std::cout << "-------------------------------\n" << std::endl;
 	}
 
 	void Init2()
@@ -177,9 +153,6 @@ public:
 		this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(400.f, 600.f)));
 		this->oszlopok.push_back(new Oszlop('C', sf::Vector2f(650.f, 600.f)));
 
-		std::cout << "-------------------------------" << std::endl;
-		std::cout << "-------------Init--------------" << std::endl;
-		std::cout << "-------------------------------" << std::endl;
 		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 200.f));
 		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 200.f));
 
@@ -202,10 +175,6 @@ public:
 		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 80.f));
 
 		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 60.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 60.f));
-		std::cout << "-------------------------------" << std::endl;
-		std::cout << "------------End-Init-----------" << std::endl;
-		std::cout << "-------------------------------\n" << std::endl;
-		
+		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 60.f));	
 	}
 };

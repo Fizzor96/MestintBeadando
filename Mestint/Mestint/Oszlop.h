@@ -37,7 +37,7 @@ public:
 			korong->shape.setPosition(this->shape.getPosition().x, (this->korongstack[this->korongstack.size() - 1]->shape.getPosition().y - 30.f));
 		}
 		this->korongstack.push_back(korong);
-		std::cout << "Korong berakva a " << this->nev << " nevu rudra!" << std::endl;
+		//std::cout << "Korong berakva a " << this->nev << " nevu rudra!" << std::endl;
 
 	}
 
@@ -47,12 +47,12 @@ public:
 		{
 			Korong* k = new Korong(*(this->korongstack[this->korongstack.size() - 1]));
 			this->korongstack.erase(this->korongstack.end() - 1);
-			std::cout << "Korong kiveve a " << this->nev << " nevu rudrol!" << std::endl;
+			//std::cout << "Korong kiveve a " << this->nev << " nevu rudrol!" << std::endl;
 			return k;
 		}
 		else
 		{
-			std::cout << "Nincs korong az oszlopon!" << std::endl;
+			//std::cout << "Nincs korong az oszlopon!" << std::endl;
 			return nullptr;
 		}
 	}

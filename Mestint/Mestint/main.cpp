@@ -24,6 +24,32 @@ int main()
             {
                 window.close();
             }
+
+            //mozgat gombok
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Q)
+            {
+                h->Mozgat('A', 'B');
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::W)
+            {
+                h->Mozgat('A', 'C');
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::E)
+            {
+                h->Mozgat('B', 'A');
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::R)
+            {
+                h->Mozgat('B', 'C');
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::T)
+            {
+                h->Mozgat('C', 'A');
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z)
+            {
+                h->Mozgat('C', 'B');
+            }
         }
         window.clear();
         //Draw here
