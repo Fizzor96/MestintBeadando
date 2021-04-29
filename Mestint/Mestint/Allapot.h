@@ -1,20 +1,24 @@
 #pragma once
+
 #include <iostream>
 #include <vector>
+#include "Hanoi.h"
 
 class Allapot
 {
 public:
-	static int korongszam;
-	std::vector<std::string> korongok;
+	static unsigned int korongszam;
 	static std::vector<std::string> oszlopok;
+	std::vector<std::string> korongok;
+	
 
 public:
 	Allapot()
 	{
 		for (size_t i = 0; i < korongszam; i++)
 		{
-			this->korongok[i] = "A";
+			//this->korongok[i] = std::string("A");
+			this->korongok.push_back(std::string("A"));
 		}
 	}
 
@@ -41,7 +45,20 @@ public:
 		}
 		return true;
 	}
+
+	std::string ToString()
+	{
+		std::string res = "";
+		res += "(";
+		for (size_t i = 0; i < korongszam - 1; i++)
+		{
+			res += korongok[i] + " ";
+		}
+		res += korongok[korongszam - 1];
+		res += ")";
+		return res;
+	}
 };
 
-int Allapot::korongszam = 3;
-std::vector<std::string> Allapot::oszlopok{ "A", "B", "C"}
+unsigned int Allapot::korongszam = 5;
+std::vector<std::string> Allapot::oszlopok{ "A", "B", "C" };

@@ -1,22 +1,39 @@
 #pragma once
+
 #include <iostream>
 #include <vector>
-#include <stack>
 #include "Oprt.h"
-#include "Kereso.h"
 #include "Allapot.h"
 #include "Csomopont.h"
 
-class Melysegi : public Kereso
+class Melysegi
 {
 public:
 
-	Melysegi()
-	{
-		Kereses();
-	}
+    std::vector<Allapot> utvonal;
+    std::vector<Oprt> operatorok;
+
+	Melysegi() {}
 
 	~Melysegi() {}
+
+    void Start()
+    {
+        OperatorokGeneralasa();
+        Kereses();
+    }
+
+    void OperatorokGeneralasa()
+    {
+        for (size_t i = 0; i < Allapot::korongszam; i++)
+        {
+            for (size_t j = 0; j < Allapot::oszlopok.size(); j++)
+            {
+                Oprt ujOperator(i, Allapot::oszlopok[j]);
+                operatorok.push_back(ujOperator);
+            }
+        }
+    }
 
     //nyiltcsucsok.Contains(ujCsomopont)
     bool Contains(std::vector<Csomopont> csucsok, Csomopont csomopont)
@@ -42,7 +59,6 @@ public:
         {
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
 
-            //remove nyiltcsucsok last element
             nyiltcsucsok.pop_back();
 
             for (Oprt op : operatorok)
@@ -56,8 +72,8 @@ public:
                     if (!Contains(nyiltcsucsok, ujCsomopont) && !Contains(zartcsucsok, ujCsomopont))
                     {
                         nyiltcsucsok.push_back(ujCsomopont);
+                        std::cout << ujCsomopont.allapot.ToString() << std::endl;
                     }
-                    
                 }
             }
             zartcsucsok.push_back(aktualisCsomopont);
@@ -72,6 +88,7 @@ public:
 
             std::reverse(utvonal.begin(), utvonal.end());
         }
+        std::cout << "Depthsearch Done!" << std::endl;
 	}
 
 };

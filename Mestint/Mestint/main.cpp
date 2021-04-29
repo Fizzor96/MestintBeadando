@@ -55,6 +55,10 @@ int main()
             {
                 h->Reset();
             }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::S)
+            {
+                h->DepthSearch();
+            }
         }
         window.clear(sf::Color(128, 128, 128, 255));
         //Draw here

@@ -13,8 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Orai">
+    <Filter Include="Deprecated">
+      <UniqueIdentifier>{e1f3840a-4b4b-40da-8442-eef8eb5812ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AllapotTer">
       <UniqueIdentifier>{b354f77c-51fb-4685-b0e1-34381b042de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Keresok">
+      <UniqueIdentifier>{7cc6c260-1ce3-45d2-9641-3a19969e2564}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,19 +45,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Allapot.h">
-      <Filter>Orai</Filter>
-    </ClInclude>
-    <ClInclude Include="Kereso.h">
-      <Filter>Orai</Filter>
-    </ClInclude>
-    <ClInclude Include="Melysegi.h">
-      <Filter>Orai</Filter>
+      <Filter>AllapotTer</Filter>
     </ClInclude>
     <ClInclude Include="Csomopont.h">
-      <Filter>Orai</Filter>
+      <Filter>AllapotTer</Filter>
     </ClInclude>
     <ClInclude Include="Oprt.h">
-      <Filter>Orai</Filter>
+      <Filter>AllapotTer</Filter>
+    </ClInclude>
+    <ClInclude Include="Kereso.h">
+      <Filter>Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="Melysegi.h">
+      <Filter>Keresok</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

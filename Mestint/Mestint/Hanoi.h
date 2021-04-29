@@ -1,8 +1,11 @@
 #pragma once
+
 #include <iostream>
 #include <vector>
 #include "Oszlop.h"
 #include "Korong.h"
+#include "Melysegi.h"
+#include "Allapot.h"
 
 using namespace std;
 
@@ -35,6 +38,13 @@ public:
 	}
 
 	~Hanoi() {}
+
+	void DepthSearch()
+	{
+		Melysegi* depth = new Melysegi();
+		depth->Start();
+		delete depth;
+	}
 
 	void Draw(sf::RenderWindow& wd)
 	{

@@ -1,6 +1,6 @@
 #pragma once
+
 #include "Allapot.h"
-#include "Melysegi.h"
 
 class Csomopont
 {
