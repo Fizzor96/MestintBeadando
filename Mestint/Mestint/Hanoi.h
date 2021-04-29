@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <thread>
 #include "Oszlop.h"
 #include "Korong.h"
 #include "Melysegi.h"
@@ -41,9 +42,9 @@ public:
 
 	void DepthSearch()
 	{
-		Melysegi* depth = new Melysegi();
-		depth->Start();
-		delete depth;
+		std::thread t1(&Melysegi::Start, Melysegi());
+		t1.detach();
+		t1.~thread();
 	}
 
 	void Draw(sf::RenderWindow& wd)
@@ -99,7 +100,7 @@ public:
 					if (d->korongstack.size() == 0)
 					{
 						d->Berak(s->Kivesz());
-						std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
+						//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
 						return true;
 					}
 					else
@@ -107,7 +108,7 @@ public:
 						if (d->korongstack[d->korongstack.size() - 1]->shape.getSize().x >= s->korongstack[s->korongstack.size() - 1]->shape.getSize().x)
 						{
 							d->Berak(s->Kivesz());
-							std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
+							//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
 							return true;
 						}
 						else

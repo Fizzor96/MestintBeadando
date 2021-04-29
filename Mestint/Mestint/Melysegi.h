@@ -5,6 +5,7 @@
 #include "Oprt.h"
 #include "Allapot.h"
 #include "Csomopont.h"
+#include <thread>
 
 class Melysegi
 {
