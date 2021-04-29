@@ -18,10 +18,23 @@ public:
 	{
 		this->nev = name;
 		this->hely = location;
-		this->shape.setSize(sf::Vector2f(10.f, 350.f));
-		this->shape.setFillColor(sf::Color(128, 128, 128, 255));
-		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, 335.f));
+		this->shape.setSize(sf::Vector2f(10.f, 500.f));
+		this->shape.setFillColor(sf::Color::White);
+		this->shape.setOutlineColor(sf::Color::Black);
+		this->shape.setOutlineThickness(1.f);
+		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
 		this->shape.setPosition(location);
+	}
+
+	Oszlop(char name, float xlocation)
+	{
+		this->nev = name;
+		this->shape.setSize(sf::Vector2f(10.f, 500.f));
+		this->shape.setFillColor(sf::Color::White);
+		this->shape.setOutlineColor(sf::Color::Black);
+		this->shape.setOutlineThickness(1.f);
+		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
+		this->shape.setPosition(sf::Vector2f(xlocation, (sf::VideoMode::getDesktopMode().height - (this->shape.getOrigin().y / 1.5) - Korong::height)));
 	}
 
 	~Oszlop(){}
@@ -34,7 +47,7 @@ public:
 		}
 		else
 		{
-			korong->shape.setPosition(this->shape.getPosition().x, (this->korongstack[this->korongstack.size() - 1]->shape.getPosition().y - 30.f));
+			korong->shape.setPosition(this->shape.getPosition().x, (this->korongstack[this->korongstack.size() - 1]->shape.getPosition().y - Korong::height));
 		}
 		this->korongstack.push_back(korong);
 		//std::cout << "Korong berakva a " << this->nev << " nevu rudra!" << std::endl;
@@ -54,6 +67,22 @@ public:
 		{
 			//std::cout << "Nincs korong az oszlopon!" << std::endl;
 			return nullptr;
+		}
+	}
+
+	void Urit()
+	{
+		this->korongstack.clear();
+	}
+
+	void DrawKorongok(sf::RenderWindow& wd)
+	{
+		if (this->korongstack.size() > 0)
+		{
+			for (size_t i = 0; i < this->korongstack.size(); i++)
+			{
+				wd.draw(this->korongstack[i]->shape);
+			}
 		}
 	}
 

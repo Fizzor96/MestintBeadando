@@ -17,10 +17,23 @@ public:
 	char b = 'B';
 	char c = 'C';
 
+	const sf::Color c1 = sf::Color::Green;
+	const sf::Color c2 = sf::Color::Blue;
+
 public:
 	Hanoi()
 	{
+		//Init oszlopok
+		//this->oszlopok.push_back(new Oszlop('A', sf::Vector2f(150.f, 700.f)));
+		//this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(500.f, 700.f)));
+		//this->oszlopok.push_back(new Oszlop('C', sf::Vector2f(850.f, 700.f)));
+
+		this->oszlopok.push_back(new Oszlop('A', 150.f));
+		this->oszlopok.push_back(new Oszlop('B', 500.f));
+		this->oszlopok.push_back(new Oszlop('C', 850.f));
+
 		Init();
+
 		korongszam = GetKorongszam();
 		std::cout << "Osszkorongszam = " << korongszam << std::endl;
 	}
@@ -35,12 +48,9 @@ public:
 			wd.draw(oszlopok[i]->shape);
 		}
 		
-		for (size_t i = 0; i < oszlopok.size(); i++)
+		for (size_t i = 0; i < this->oszlopok.size(); i++)
 		{
-			for (size_t j = 0; j < oszlopok[i]->korongstack.size(); j++)
-			{
-				wd.draw(oszlopok[i]->korongstack[j]->shape);
-			}
+			this->oszlopok[i]->DrawKorongok(wd);
 		}
 	}
 
@@ -122,59 +132,32 @@ public:
 
 	void Init()
 	{
-		//Init oszlopok
-		this->oszlopok.push_back(new Oszlop('A', sf::Vector2f(150.f, 500.f)));
-		this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(400.f, 500.f)));
-		this->oszlopok.push_back(new Oszlop('C', sf::Vector2f(650.f, 500.f)));
-
 		// Int korongok
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Green, 200.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Red, 180.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Green, 160.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Red, 140.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Green, 120.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Red, 100.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Green, 80.f));
-		this->oszlopok[0]->Berak(new Korong(sf::Color::Red, 60.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 200.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 180.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 160.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 140.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 120.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 100.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 80.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 60.f));
 
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Red, 200.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 180.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Red, 160.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 140.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Red, 120.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 100.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Red, 80.f));
-		this->oszlopok[1]->Berak(new Korong(sf::Color::Green, 60.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 200.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 180.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 160.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 140.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 120.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 100.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 80.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 60.f));
 	}
 
-	void Init2()
+	void Reset()
 	{
-		this->oszlopok.push_back(new Oszlop('A', sf::Vector2f(150.f, 600.f)));
-		this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(400.f, 600.f)));
-		this->oszlopok.push_back(new Oszlop('C', sf::Vector2f(650.f, 600.f)));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 200.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 200.f));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 180.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 180.f));
-		
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 160.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 160.f));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 140.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 140.f));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 120.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 120.f));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 100.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 100.f));
-		
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 80.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 80.f));
-
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Green, 60.f));
-		this->oszlopok[2]->Berak(new Korong(sf::Color::Red, 60.f));	
+		for (size_t i = 0; i < this->oszlopok.size(); i++)
+		{
+			this->oszlopok[i]->korongstack.clear();
+		}
+		Init();
 	}
 };

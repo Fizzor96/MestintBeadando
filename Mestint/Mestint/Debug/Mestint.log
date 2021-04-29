@@ -1,2 +1,7 @@
 ﻿  main.cpp
+C:\Users\szoke\Documents\GitHub\MestintBeadando\Mestint\Mestint\Oszlop.h(37,127): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   Mestint.vcxproj -> C:\Users\szoke\Documents\GitHub\MestintBeadando\Mestint\Debug\Mestint.exe

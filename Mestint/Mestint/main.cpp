@@ -50,8 +50,12 @@ int main()
             {
                 h->Mozgat('C', 'B');
             }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Space)
+            {
+                h->Reset();
+            }
         }
-        window.clear();
+        window.clear(sf::Color(128, 128, 128, 255));
         //Draw here
         h->Draw(window);
         window.display();
