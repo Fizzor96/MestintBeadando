@@ -4,6 +4,7 @@
 #include <string>
 #include "SFML/Graphics.hpp"
 #include "Korong.h"
+#include "Globals.h"
 
 class Oszlop
 {
@@ -34,7 +35,7 @@ public:
 		this->shape.setOutlineColor(sf::Color::Black);
 		this->shape.setOutlineThickness(1.f);
 		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		this->shape.setPosition(sf::Vector2f(xlocation, (sf::VideoMode::getDesktopMode().height - (this->shape.getOrigin().y / 1.5) - Korong::height)));
+		this->shape.setPosition(sf::Vector2f(xlocation, (Global::Height - Korong::height)));
 	}
 
 	~Oszlop(){}

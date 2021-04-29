@@ -153,11 +153,12 @@
     <ClInclude Include="Allapot.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Csomopont.h" />
+    <ClInclude Include="Globals.h" />
     <ClInclude Include="Hanoi.h" />
     <ClInclude Include="Kereso.h" />
     <ClInclude Include="Korong.h" />
     <ClInclude Include="Melysegi.h" />
-    <ClInclude Include="Operator.h" />
+    <ClInclude Include="Oprt.h" />
     <ClInclude Include="Oszlop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

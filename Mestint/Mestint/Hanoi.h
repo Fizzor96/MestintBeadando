@@ -24,10 +24,6 @@ public:
 	Hanoi()
 	{
 		//Init oszlopok
-		//this->oszlopok.push_back(new Oszlop('A', sf::Vector2f(150.f, 700.f)));
-		//this->oszlopok.push_back(new Oszlop('B', sf::Vector2f(500.f, 700.f)));
-		//this->oszlopok.push_back(new Oszlop('C', sf::Vector2f(850.f, 700.f)));
-
 		this->oszlopok.push_back(new Oszlop('A', 150.f));
 		this->oszlopok.push_back(new Oszlop('B', 500.f));
 		this->oszlopok.push_back(new Oszlop('C', 850.f));
@@ -106,20 +102,20 @@ public:
 						}
 						else
 						{
-							std::cout << "Invalid mozgatas!" << std::endl;
+							//std::cout << "Invalid mozgatas!" << std::endl;
 							return false;
 						}
 					}
 				}
 				else
 				{
-					std::cout << "Nincs korong a \'honnan\' rudon!" << std::endl;
+					//std::cout << "Nincs korong a \'honnan\' rudon!" << std::endl;
 					return false;
 				}
 			}
 			else
 			{
-				std::cout << "A rudak nem lettek megtalalva!" << std::endl;
+				//std::cout << "A rudak nem lettek megtalalva!" << std::endl;
 				return false;
 			}
 		}
@@ -136,20 +132,20 @@ public:
 		this->oszlopok[0]->Berak(new Korong(c1, 200.f));
 		this->oszlopok[0]->Berak(new Korong(c2, 180.f));
 		this->oszlopok[0]->Berak(new Korong(c1, 160.f));
-		this->oszlopok[0]->Berak(new Korong(c2, 140.f));
-		this->oszlopok[0]->Berak(new Korong(c1, 120.f));
-		this->oszlopok[0]->Berak(new Korong(c2, 100.f));
-		this->oszlopok[0]->Berak(new Korong(c1, 80.f));
-		this->oszlopok[0]->Berak(new Korong(c2, 60.f));
+		//this->oszlopok[0]->Berak(new Korong(c2, 140.f));
+		//this->oszlopok[0]->Berak(new Korong(c1, 120.f));
+		//this->oszlopok[0]->Berak(new Korong(c2, 100.f));
+		//this->oszlopok[0]->Berak(new Korong(c1, 80.f));
+		//this->oszlopok[0]->Berak(new Korong(c2, 60.f));
 
-		this->oszlopok[1]->Berak(new Korong(c1, 200.f));
-		this->oszlopok[1]->Berak(new Korong(c2, 180.f));
-		this->oszlopok[1]->Berak(new Korong(c1, 160.f));
-		this->oszlopok[1]->Berak(new Korong(c2, 140.f));
-		this->oszlopok[1]->Berak(new Korong(c1, 120.f));
-		this->oszlopok[1]->Berak(new Korong(c2, 100.f));
-		this->oszlopok[1]->Berak(new Korong(c1, 80.f));
-		this->oszlopok[1]->Berak(new Korong(c2, 60.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 200.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 180.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 160.f));
+		//this->oszlopok[1]->Berak(new Korong(c2, 140.f));
+		//this->oszlopok[1]->Berak(new Korong(c1, 120.f));
+		//this->oszlopok[1]->Berak(new Korong(c2, 100.f));
+		//this->oszlopok[1]->Berak(new Korong(c1, 80.f));
+		//this->oszlopok[1]->Berak(new Korong(c2, 60.f));
 	}
 
 	void Reset()

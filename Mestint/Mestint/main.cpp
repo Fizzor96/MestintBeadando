@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "Hanoi.h"
+#include "Globals.h"
 
 
 int main()
 {
     //Setup
-    sf::RenderWindow window(sf::VideoMode(1024, 768), "Mestint Beadando");
+    sf::RenderWindow window(sf::VideoMode(Global::Width, Global::Height), "Mestint Beadando");
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(false);
     window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));

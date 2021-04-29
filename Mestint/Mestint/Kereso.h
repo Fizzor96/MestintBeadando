@@ -3,13 +3,14 @@
 #include <vector>
 #include "Hanoi.h"
 #include "Allapot.h"
-#include "Operator.h"
+#include "Oprt.h"
+#include "Melysegi.h"
 
 class Kereso
 {
 public:
 	std::vector<Allapot> utvonal;
-	std::vector<Operator> operatorok;
+	std::vector<Oprt> operatorok;
 
 
 public:
@@ -22,6 +23,13 @@ public:
 private:
 	void OperatorokGeneralasa()
 	{
-
+		for (int i = 0; i < Allapot::korongszam; i++)
+		{
+			for (int j = 0; j < Allapot::oszlopok.size(); j++)
+			{
+				Oprt ujOperator(i, Allapot::oszlopok[j]);
+				operatorok.push_back(ujOperator);
+			}
+		}
 	}
 };
