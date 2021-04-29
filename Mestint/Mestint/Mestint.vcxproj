@@ -153,7 +153,6 @@
     <ClInclude Include="Allapot.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Csomopont.h" />
-    <ClInclude Include="Globals.h" />
     <ClInclude Include="Hanoi.h" />
     <ClInclude Include="Kereso.h" />
     <ClInclude Include="Korong.h" />

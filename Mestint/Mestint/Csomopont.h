@@ -15,9 +15,9 @@ public:
 public:
 	Csomopont() {}
 
-	Csomopont(Allapot allapot, int operatorindex)
+	Csomopont(const Allapot& all, int operatorindex)
 	{
-		this->allapot = allapot;
+		this->allapot = all;
 		this->operatorindex = operatorindex;
 	}
 
@@ -35,22 +35,22 @@ public:
 			koltseg = szulo.koltseg + 1;
 		}
 
-		this->heurisztika = 0;
-		for (std::string korong : this->allapot.korongok)
-		{
-			if (korong == "P")
-			{
-				this->heurisztika += 1;
-			}
-			else if (korong == "Q")
-			{
-				this->heurisztika += 2;
-			}
-			else
-			{
-				this->heurisztika += 3;
-			}
-		}
+		//this->heurisztika = 0;
+		//for (Korong korong : this->allapot->korongok)
+		//{
+		//	if (korong.oszlopid == "P")
+		//	{
+		//		this->heurisztika += 1;
+		//	}
+		//	else if (korong.oszlopid == "Q")
+		//	{
+		//		this->heurisztika += 2;
+		//	}
+		//	else
+		//	{
+		//		this->heurisztika += 3;
+		//	}
+		//}
 	}
 
 	~Csomopont() {}

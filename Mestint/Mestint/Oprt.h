@@ -34,20 +34,21 @@ public:
 		{
 			ujAllapot.korongok[i] = allapot.korongok[i];
 		}
-		ujAllapot.korongok[melyiket] = mire;
+		//auto a = ujAllapot.korongok[melyiket];
+		ujAllapot.korongok[melyiket].oszlopid = mire;
 		return ujAllapot;
 	}
 
 	bool Elofeltetel(Allapot allapot)
 	{
-		if (allapot.korongok[melyiket] == mire)
+		if (allapot.korongok[melyiket].oszlopid == mire)
 		{
 			return false;
 		}
 
 		for (int i = 0; i < melyiket; i++)
 		{
-			if (allapot.korongok[i] == allapot.korongok[melyiket] || allapot.korongok[i] == mire)
+			if (allapot.korongok[i].oszlopid == allapot.korongok[melyiket].oszlopid || allapot.korongok[i].oszlopid == mire)
 			{
 				return false;
 			}

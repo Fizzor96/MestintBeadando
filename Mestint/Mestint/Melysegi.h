@@ -30,13 +30,12 @@ public:
         {
             for (size_t j = 0; j < Allapot::oszlopok.size(); j++)
             {
-                Oprt ujOperator(i, Allapot::oszlopok[j]);
+                Oprt ujOperator(i, Allapot::oszlopok[j].nev);
                 operatorok.push_back(ujOperator);
             }
         }
     }
 
-    //nyiltcsucsok.Contains(ujCsomopont)
     bool Contains(std::vector<Csomopont> csucsok, Csomopont csomopont)
     {
         for (size_t i = 0; i < csucsok.size(); i++)
@@ -57,6 +56,7 @@ public:
         nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
 
         std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
             

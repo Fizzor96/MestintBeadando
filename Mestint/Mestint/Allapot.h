@@ -2,14 +2,23 @@
 
 #include <iostream>
 #include <vector>
+#include "SFML/Graphics.hpp"
 #include "Hanoi.h"
+#include "Oszlop.h"
 
 class Allapot
 {
 public:
+	//static unsigned int korongszam;
+	//static std::vector<std::string> oszlopok;
+	//std::vector<std::string> korongok;
+
 	static unsigned int korongszam;
-	static std::vector<std::string> oszlopok;
-	std::vector<std::string> korongok;
+	static std::vector<Oszlop> oszlopok;
+	std::vector<Korong> korongok;
+
+	const sf::Color c1 = sf::Color::Green;
+	const sf::Color c2 = sf::Color::Blue;
 	
 
 public:
@@ -24,15 +33,16 @@ public:
 
 	Allapot()
 	{
-		for (size_t i = 0; i < korongszam / 2; i++)
+		for (size_t i = 0; i < korongszam; i++)
 		{
-			//this->korongok[i] = std::string("A");
-			this->korongok.push_back(std::string("A"));
-		}
-		for (size_t i = 0; i < korongszam / 2; i++)
-		{
-			//this->korongok[i] = std::string("A");
-			this->korongok.push_back(std::string("B"));
+			if (i % 2 == 0)
+			{
+				korongok.push_back(Korong(c1, "A"));
+			}
+			else
+			{
+				korongok.push_back(Korong(c2, "B"));
+			}
 		}
 	}
 
@@ -48,26 +58,6 @@ public:
 	//	return true;
 	//}
 
-	/// <summary>
-	/// Cel: egy olyan celfeltetel konstrualasa, melyben minden masodik korong mas szinu es szeparalasuk megvalosuljon az eddigi feltetelek mellett
-	/// </summary>
-	/// <returns></returns>
-	bool celfeltetel_original()
-	{
-		for (size_t i = 0; i < korongszam; i++)
-		{
-			if (korongok[i] != "C")
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/// <summary>
-	/// Mukodo celfeltetel egyszinu toronyra, melyek el vannak szeparalva
-	/// </summary>
-	/// <returns></returns>
 	bool celfeltetel()
 	{
 		bool sum = false;
@@ -75,14 +65,11 @@ public:
 		bool t2 = true;
 		for (size_t i = 0; i < korongszam / 2; i++)
 		{
-			if (korongok[i] != "C")
+			if (korongok[i].id % 2 == 0 && korongok[i].oszlopid != "C")
 			{
 				t1 = false;
 			}
-		}
-		for (size_t i = korongszam / 2; i < korongszam; i++)
-		{
-			if (korongok[i] != "B")
+			if (korongok[i].id % 2 == 1 && korongok[i].oszlopid != "B")
 			{
 				t2 = false;
 			}
@@ -98,7 +85,7 @@ public:
 	{
 		for (size_t i = 0; i < korongok.size(); i++)
 		{
-			if (this->korongok[i] != allapot.korongok[i])
+			if (this->korongok[i].oszlopid != allapot.korongok[i].oszlopid && this->korongok[i].szin != allapot.korongok[i].szin)
 			{
 				return false;
 			}
@@ -112,13 +99,20 @@ public:
 		res += "(";
 		for (size_t i = 0; i < korongszam - 1; i++)
 		{
-			res += korongok[i] + " ";
+			res += korongok[i].oszlopid + " ";
 		}
-		res += korongok[korongszam - 1];
+		res += korongok[korongszam - 1].oszlopid;
 		res += ")";
 		return res;
+	}
+
+	Allapot& operator=(const Allapot& other)
+	{
+		if (this == &other)
+			return *this;
 	}
 };
 
 unsigned int Allapot::korongszam = 8;
-std::vector<std::string> Allapot::oszlopok{ "A", "B", "C" };
+
+std::vector<Oszlop> Allapot::oszlopok{ Oszlop("A", 150.f), Oszlop("B", 500.f), Oszlop("C", 850.f) };
