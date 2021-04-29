@@ -4,12 +4,12 @@
 #include <string>
 #include "SFML/Graphics.hpp"
 #include "Korong.h"
-#include "Globals.h"
+#include "Allapot.h"
 
 class Oszlop
 {
 public:
-	char nev;
+	std::string nev;
 	sf::Vector2f hely;
 	sf::RectangleShape shape;
 	std::vector<Korong*> korongstack;
@@ -27,7 +27,7 @@ public:
 		this->shape.setPosition(location);
 	}
 
-	Oszlop(char name, float xlocation)
+	Oszlop(std::string name, float xlocation)
 	{
 		this->nev = name;
 		this->shape.setSize(sf::Vector2f(10.f, 500.f));
@@ -35,7 +35,7 @@ public:
 		this->shape.setOutlineColor(sf::Color::Black);
 		this->shape.setOutlineThickness(1.f);
 		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		this->shape.setPosition(sf::Vector2f(xlocation, (Global::Height - Korong::height)));
+		this->shape.setPosition(sf::Vector2f(xlocation, (768 - Korong::height)));
 	}
 
 	~Oszlop(){}

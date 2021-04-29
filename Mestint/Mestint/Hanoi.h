@@ -28,9 +28,9 @@ public:
 	Hanoi()
 	{
 		//Init oszlopok
-		this->oszlopok.push_back(new Oszlop('A', 150.f));
-		this->oszlopok.push_back(new Oszlop('B', 500.f));
-		this->oszlopok.push_back(new Oszlop('C', 850.f));
+		this->oszlopok.push_back(new Oszlop("A", 150.f));
+		this->oszlopok.push_back(new Oszlop("B", 500.f));
+		this->oszlopok.push_back(new Oszlop("C", 850.f));
 
 		Init();
 
@@ -71,7 +71,7 @@ public:
 		return szam;
 	}
 
-	bool Mozgat(char honnan, char hova)
+	bool Mozgat(std::string honnan, std::string hova)
 	{
 		Oszlop* s = nullptr;
 		Oszlop* d = nullptr;
