@@ -13,16 +13,46 @@ public:
 	
 
 public:
+	//Allapot()
+	//{
+	//	for (size_t i = 0; i < korongszam; i++)
+	//	{
+	//		//this->korongok[i] = std::string("A");
+	//		this->korongok.push_back(std::string("A"));
+	//	}
+	//}
+
 	Allapot()
 	{
-		for (size_t i = 0; i < korongszam; i++)
+		for (size_t i = 0; i < korongszam / 2; i++)
 		{
 			//this->korongok[i] = std::string("A");
 			this->korongok.push_back(std::string("A"));
 		}
+		for (size_t i = 0; i < korongszam / 2; i++)
+		{
+			//this->korongok[i] = std::string("A");
+			this->korongok.push_back(std::string("B"));
+		}
 	}
 
-	bool celfeltetel()
+	//bool celfeltetel()
+	//{
+	//	for (size_t i = 0; i < korongszam; i++)
+	//	{
+	//		if (korongok[i] != "C")
+	//		{
+	//			return false;
+	//		}
+	//	}
+	//	return true;
+	//}
+
+	/// <summary>
+	/// Cel: egy olyan celfeltetel konstrualasa, melyben minden masodik korong mas szinu es szeparalasuk megvalosuljon az eddigi feltetelek mellett
+	/// </summary>
+	/// <returns></returns>
+	bool celfeltetel_original()
 	{
 		for (size_t i = 0; i < korongszam; i++)
 		{
@@ -32,6 +62,36 @@ public:
 			}
 		}
 		return true;
+	}
+
+	/// <summary>
+	/// Mukodo celfeltetel egyszinu toronyra, melyek el vannak szeparalva
+	/// </summary>
+	/// <returns></returns>
+	bool celfeltetel()
+	{
+		bool sum = false;
+		bool t1 = true;
+		bool t2 = true;
+		for (size_t i = 0; i < korongszam / 2; i++)
+		{
+			if (korongok[i] != "C")
+			{
+				t1 = false;
+			}
+		}
+		for (size_t i = korongszam / 2; i < korongszam; i++)
+		{
+			if (korongok[i] != "B")
+			{
+				t2 = false;
+			}
+		}
+		if (t1 == true && t2 == true)
+		{
+			sum = true;
+		}
+		return sum;
 	}
 
 	bool Equals(Allapot allapot)
@@ -60,5 +120,5 @@ public:
 	}
 };
 
-unsigned int Allapot::korongszam = 5;
+unsigned int Allapot::korongszam = 4;
 std::vector<std::string> Allapot::oszlopok{ "A", "B", "C" };

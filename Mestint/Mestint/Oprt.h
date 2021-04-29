@@ -7,6 +7,9 @@
 #include "Melysegi.h"
 #include "Csomopont.h"
 
+/// <summary>
+/// Pakolas implementacioja ide kerul
+/// </summary>
 class Oprt
 {
 public:

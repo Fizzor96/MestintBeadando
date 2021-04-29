@@ -55,8 +55,10 @@ public:
 
         nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
 
+        std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
+            
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
 
             nyiltcsucsok.pop_back();
@@ -72,11 +74,13 @@ public:
                     if (!Contains(nyiltcsucsok, ujCsomopont) && !Contains(zartcsucsok, ujCsomopont))
                     {
                         nyiltcsucsok.push_back(ujCsomopont);
-                        std::cout << ujCsomopont.allapot.ToString() << std::endl;
+                        
                     }
                 }
             }
             zartcsucsok.push_back(aktualisCsomopont);
+            //LOG
+            std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
         }
 
         if (nyiltcsucsok.size() > 0)

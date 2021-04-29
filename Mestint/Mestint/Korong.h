@@ -9,10 +9,14 @@ public:
 	sf::Color szin;
 	sf::RectangleShape shape;
 	static const float height;
+	static int gid;
+	int id;
 
 public:
 	Korong(sf::Color color, float width)
 	{
+		gid++;
+		this->id = gid;
 		this->szin = color;
 		this->shape.setFillColor(color);
 		this->shape.setSize(sf::Vector2f(width, height));
@@ -25,3 +29,4 @@ public:
 };
 
 const float Korong::height = 25.f;
+int Korong::gid = 0;
