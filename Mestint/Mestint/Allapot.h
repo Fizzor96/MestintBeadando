@@ -120,5 +120,5 @@ public:
 	}
 };
 
-unsigned int Allapot::korongszam = 4;
+unsigned int Allapot::korongszam = 8;
 std::vector<std::string> Allapot::oszlopok{ "A", "B", "C" };
