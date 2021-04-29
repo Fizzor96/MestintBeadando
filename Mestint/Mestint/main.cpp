@@ -5,9 +5,8 @@
 int main()
 {
     //Setup
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mestint Beadando");
+    sf::RenderWindow window(sf::VideoMode(1024, 768), "Mestint Beadando");
     window.setFramerateLimit(60);
-    window.setSize(sf::Vector2u(1280, 1024));
     window.setVerticalSyncEnabled(false);
     window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));
     

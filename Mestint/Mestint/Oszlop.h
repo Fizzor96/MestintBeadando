@@ -43,10 +43,18 @@ public:
 
 	Korong* Kivesz()
 	{
-		Korong* k = new Korong(*(this->korongstack[this->korongstack.size() - 1]));
-		this->korongstack.erase(this->korongstack.end() - 1);
-		std::cout << "Korong kiveve a " << this->nev << " nevu rudrol!" << std::endl;
-		return k;
+		if (this->korongstack.size() > 0)
+		{
+			Korong* k = new Korong(*(this->korongstack[this->korongstack.size() - 1]));
+			this->korongstack.erase(this->korongstack.end() - 1);
+			std::cout << "Korong kiveve a " << this->nev << " nevu rudrol!" << std::endl;
+			return k;
+		}
+		else
+		{
+			std::cout << "Nincs korong az oszlopon!" << std::endl;
+			return nullptr;
+		}
 	}
 
 };

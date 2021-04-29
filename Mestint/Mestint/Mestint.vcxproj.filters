@@ -32,5 +32,20 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Kereso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Allapot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Melysegi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Csomopont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Operator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
