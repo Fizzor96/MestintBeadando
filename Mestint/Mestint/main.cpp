@@ -63,9 +63,12 @@ int main()
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::S)
             {
                 //h->DepthSearch();
-                std::thread* t = new std::thread(&Melysegi::Start, Melysegi());
-                t->detach();
-                t->~thread();
+                Melysegi s;
+                s.Start();
+                for (size_t i = 0; i < s.utvonal.size(); i++)
+                {
+                    std::cout << s.utvonal[i].ToString();
+                }
                 //m->Start();
             }
         }

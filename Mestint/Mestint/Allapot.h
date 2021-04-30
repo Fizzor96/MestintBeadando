@@ -83,7 +83,7 @@ public:
 	{
 		for (size_t i = 0; i < korongok.size(); i++)
 		{
-			if (this->korongok[i].kid != allapot.korongok[i].kid)
+			if (this->korongok[i].Equals(allapot.korongok[i]))
 			{
 				return false;
 			}
