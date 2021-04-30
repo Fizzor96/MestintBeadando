@@ -11,11 +11,11 @@ class Oprt
 {
 public:
 	int melyiket;
-	int mire;
+	std::string mire;
 
 public:
 
-	Oprt(int melyiket, int mire)
+	Oprt(int melyiket, std::string mire)
 	{
 		this->melyiket = melyiket;
 		this->mire = mire;
@@ -32,20 +32,20 @@ public:
 			ujAllapot.korongok[i] = allapot.korongok[i];
 		}
 		//auto a = ujAllapot.korongok[melyiket];
-		ujAllapot.korongok[melyiket] = allapot.korongok[mire];
+		ujAllapot.korongok[melyiket].oszlopid = mire;
 		return ujAllapot;
 	}
 
 	bool Elofeltetel(Allapot allapot)
 	{
-		if (allapot.korongok[melyiket].Equals(allapot.korongok[mire]))
+		if (allapot.korongok[melyiket].oszlopid == mire)
 		{
 			return false;
 		}
 
 		for (int i = 0; i < melyiket; i++)
 		{
-			if (allapot.korongok[i].Equals(allapot.korongok[melyiket]) || allapot.korongok[i].Equals(allapot.korongok[mire]))
+			if (allapot.korongok[i].Equals(allapot.korongok[melyiket]) || allapot.korongok[i].oszlopid == mire)
 			{
 				return false;
 			}

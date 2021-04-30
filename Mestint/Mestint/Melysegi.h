@@ -36,7 +36,7 @@ public:
         {
             for (size_t j = 0; j < Allapot::oszlopok.size(); j++)
             {
-                Oprt ujOperator(i, j);
+                Oprt ujOperator(i, Allapot::oszlopok[j].nev);
                 operatorok.push_back(ujOperator);
             }
         }
@@ -60,17 +60,11 @@ public:
         std::vector<Csomopont> zartcsucsok;
 
         nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
-        if (nyiltcsucsok.size() > 0)
-        {
-            std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
-        }
-
 
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
             
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
-            //std::cout << aktualisCsomopont.allapot.ToString() << std::endl;
 
             nyiltcsucsok.pop_back();
 
