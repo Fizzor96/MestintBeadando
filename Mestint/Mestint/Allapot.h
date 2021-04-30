@@ -22,19 +22,64 @@ public:
 	//	}
 	//}
 
-	Allapot()
+	bool celfeltetel()
 	{
+		//reversed
+		//for (size_t i = 0; i < korongszam; i++)
+		//{
+		//	if (i < korongszam / 2 && korongok[i] != "A")
+		//	{
+		//		return false;
+		//	}
+		//	if (i > korongszam / 2 && korongok[i] != "B")
+		//	{
+		//		return false;
+		//	}
+		//}
+		
 		for (size_t i = 0; i < korongszam; i++)
 		{
-			if (i % 2 == 0)
+			if (i % 2 == 0 && korongok[i] != "A")
+			{
+				return false;
+			}
+			if (i % 2 == 1 && korongok[i] != "B")
+			{
+				return false;
+			}
+		}
+
+		return true;
+		
+	}
+
+	Allapot()
+	{
+		//reversed
+		//for (size_t i = 0; i < korongszam; i++)
+		//{
+		//	if (i % 2 == 0)
+		//	{
+		//		this->korongok.push_back(std::string("A"));
+		//	}
+		//	if (i % 2 == 1)
+		//	{
+		//		this->korongok.push_back(std::string("B"));
+		//	}
+		//}
+
+		for (size_t i = 0; i < korongszam; i++)
+		{
+			if (i < korongszam / 2)
 			{
 				this->korongok.push_back(std::string("A"));
 			}
-			if (i % 2 == 1)
+			else
 			{
 				this->korongok.push_back(std::string("B"));
 			}
 		}
+
 		//for (size_t i = 0; i < korongszam / 2; i++)
 		//{
 		//	this->korongok[i] = std::string("A");
@@ -58,38 +103,6 @@ public:
 	//	}
 	//	return true;
 	//}
-
-	bool celfeltetel_original()
-	{
-		for (size_t i = 0; i < korongszam; i++)
-		{
-			if (i % 2 == 0 && korongok[i] != "C")
-			{
-				return false;
-			}
-			if (i % 2 == 1 && korongok[i] != "A")
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	bool celfeltetel()
-	{
-		for (size_t i = 0; i < korongszam; i++)
-		{
-			if (i % 2 == 0 && korongok[i] != "C")
-			{
-				return false;
-			}
-			if (i % 2 == 1 && korongok[i] != "A")
-			{
-				return false;
-			}
-		}
-		return true;
-	}
 
 	bool Equals(Allapot allapot)
 	{
