@@ -13,20 +13,28 @@ public:
 
     std::vector<Allapot> utvonal;
     std::vector<Oprt> operatorok;
+    Allapot kezdo;
 
-	Melysegi() {}
+    Melysegi() {
 
-	~Melysegi() {}
+        kezdo = Allapot();
+    }
+
+    ~Melysegi() {}
 
     void Start()
     {
+        std::cout << "Depthsearch has started!" << std::endl;
         OperatorokGeneralasa();
         Kereses();
 
+        std::cout << kezdo.ToString() << std::endl;
         for (size_t i = 0; i < utvonal.size(); i++)
         {
             std::cout << utvonal[i].ToString() << std::endl;
         }
+
+        std::cout << "Depthsearch Done!" << std::endl;
     }
 
     void OperatorokGeneralasa()
@@ -53,19 +61,19 @@ public:
         }
         return false;
     }
-	
-	void Kereses()
-	{
+
+    void Kereses()
+    {
         std::vector<Csomopont> nyiltcsucsok;
         std::vector<Csomopont> zartcsucsok;
 
-        nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
+        nyiltcsucsok.push_back(Csomopont(kezdo, -1));
 
         //std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
 
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
-            
+
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
 
             nyiltcsucsok.pop_back();
@@ -81,7 +89,7 @@ public:
                     if (!Contains(nyiltcsucsok, ujCsomopont) && !Contains(zartcsucsok, ujCsomopont))
                     {
                         nyiltcsucsok.push_back(ujCsomopont);
-                        
+
                     }
                 }
             }
@@ -98,8 +106,6 @@ public:
                 //std::reverse(utvonal.begin(), utvonal.end());
             }
         }
-
-        std::cout << "Depthsearch Done!" << std::endl;
-	}
+    }
 
 };
