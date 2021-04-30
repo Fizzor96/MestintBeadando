@@ -29,6 +29,7 @@ public:
         Kereses();
 
         std::cout << kezdo.ToString() << std::endl;
+
         for (size_t i = 0; i < utvonal.size(); i++)
         {
             std::cout << utvonal[i].ToString() << std::endl;

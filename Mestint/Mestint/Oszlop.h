@@ -9,25 +9,25 @@
 class Oszlop
 {
 public:
-	char nev;
+	std::string nev;
 	sf::Vector2f hely;
 	sf::RectangleShape shape;
 	std::vector<Korong*> korongstack;
 
 public:
-	Oszlop(char name, sf::Vector2f location)
-	{
-		this->nev = name;
-		this->hely = location;
-		this->shape.setSize(sf::Vector2f(10.f, 500.f));
-		this->shape.setFillColor(sf::Color::White);
-		this->shape.setOutlineColor(sf::Color::Black);
-		this->shape.setOutlineThickness(1.f);
-		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		this->shape.setPosition(location);
-	}
+	//Oszlop(std::string name, sf::Vector2f location)
+	//{
+	//	this->nev = name;
+	//	this->hely = location;
+	//	this->shape.setSize(sf::Vector2f(10.f, 500.f));
+	//	this->shape.setFillColor(sf::Color::White);
+	//	this->shape.setOutlineColor(sf::Color::Black);
+	//	this->shape.setOutlineThickness(1.f);
+	//	this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
+	//	this->shape.setPosition(location);
+	//}
 
-	Oszlop(char name, float xlocation)
+	Oszlop(std::string name, float xlocation)
 	{
 		this->nev = name;
 		this->shape.setSize(sf::Vector2f(10.f, 500.f));

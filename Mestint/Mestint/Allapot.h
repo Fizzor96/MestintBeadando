@@ -119,13 +119,13 @@ public:
 	std::string ToString()
 	{
 		std::string res = "";
-		res += "(";
+		res += "[";
 		for (size_t i = 0; i < korongszam - 1; i++)
 		{
 			res += korongok[i] + " ";
 		}
 		res += korongok[korongszam - 1];
-		res += ")";
+		res += "]";
 		return res;
 	}
 };

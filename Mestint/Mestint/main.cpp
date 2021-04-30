@@ -27,7 +27,7 @@ int main()
             }
 
             //mozgat gombok
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Q)
+            /*if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Q)
             {
                 h->Mozgat('A', 'B');
             }
@@ -50,7 +50,7 @@ int main()
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z)
             {
                 h->Mozgat('C', 'B');
-            }
+            }*/
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Space)
             {
                 h->Reset();
