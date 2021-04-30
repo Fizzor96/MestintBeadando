@@ -35,7 +35,7 @@ public:
 		Init();
 
 		korongszam = GetKorongszam();
-		std::cout << "Osszkorongszam = " << korongszam << std::endl;
+		//std::cout << "Osszkorongszam = " << korongszam << std::endl;
 	}
 
 	~Hanoi() {}
