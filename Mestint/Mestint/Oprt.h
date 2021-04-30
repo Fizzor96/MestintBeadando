@@ -7,18 +7,15 @@
 #include "Melysegi.h"
 #include "Csomopont.h"
 
-/// <summary>
-/// Pakolas implementacioja ide kerul
-/// </summary>
 class Oprt
 {
 public:
 	int melyiket;
-	std::string mire;
+	int mire;
 
 public:
 
-	Oprt(int melyiket, std::string mire)
+	Oprt(int melyiket, int mire)
 	{
 		this->melyiket = melyiket;
 		this->mire = mire;
@@ -35,20 +32,20 @@ public:
 			ujAllapot.korongok[i] = allapot.korongok[i];
 		}
 		//auto a = ujAllapot.korongok[melyiket];
-		ujAllapot.korongok[melyiket].oszlopid = mire;
+		ujAllapot.korongok[melyiket] = allapot.korongok[mire];
 		return ujAllapot;
 	}
 
 	bool Elofeltetel(Allapot allapot)
 	{
-		if (allapot.korongok[melyiket].oszlopid == mire)
+		if (allapot.korongok[melyiket].Equals(allapot.korongok[mire]))
 		{
 			return false;
 		}
 
 		for (int i = 0; i < melyiket; i++)
 		{
-			if (allapot.korongok[i].oszlopid == allapot.korongok[melyiket].oszlopid || allapot.korongok[i].oszlopid == mire)
+			if (allapot.korongok[i].Equals(allapot.korongok[melyiket]) || allapot.korongok[i].Equals(allapot.korongok[mire]))
 			{
 				return false;
 			}

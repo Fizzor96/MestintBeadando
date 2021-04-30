@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Allapot.h"
+#include <string>
 
 class Csomopont
 {
