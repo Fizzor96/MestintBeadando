@@ -22,6 +22,11 @@ public:
     {
         OperatorokGeneralasa();
         Kereses();
+
+        for (size_t i = 0; i < utvonal.size(); i++)
+        {
+            std::cout << utvonal[i].ToString() << std::endl;
+        }
     }
 
     void OperatorokGeneralasa()
@@ -56,7 +61,8 @@ public:
 
         nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
 
-        std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+        //std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
             
@@ -81,18 +87,18 @@ public:
             }
             zartcsucsok.push_back(aktualisCsomopont);
             //LOG
-            std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+            //std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+            if (nyiltcsucsok.size() > 0)
+            {
+                Csomopont celCsomopont = nyiltcsucsok.back();
+
+                utvonal.push_back(celCsomopont.allapot);
+                celCsomopont = *celCsomopont.szulo;
+
+                //std::reverse(utvonal.begin(), utvonal.end());
+            }
         }
 
-        if (nyiltcsucsok.size() > 0)
-        {
-            Csomopont celCsomopont = nyiltcsucsok.back();
-            
-            utvonal.push_back(celCsomopont.allapot);
-            celCsomopont = *celCsomopont.szulo;
-
-            std::reverse(utvonal.begin(), utvonal.end());
-        }
         std::cout << "Depthsearch Done!" << std::endl;
 	}
 
