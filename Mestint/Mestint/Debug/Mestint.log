@@ -1,27 +1,4 @@
-﻿  main.cpp
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(9,7): error C2143: syntax error: missing ';' before '<class-head>'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(17,21): error C2065: 'Oszlop': undeclared identifier
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(17,14): error C2923: 'std::vector': 'Oszlop' is not a valid template type argument for parameter '_Ty'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(17,14): error C2976: 'std::vector': too few template arguments
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(413): message : see declaration of 'std::vector'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,13): error C2065: 'Oszlop': undeclared identifier
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,6): error C2923: 'std::vector': 'Oszlop' is not a valid template type argument for parameter '_Ty'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,6): error C2976: 'std::vector': too few template arguments
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(413): message : see declaration of 'std::vector'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,40): error C3861: 'Oszlop': identifier not found
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,60): error C3861: 'Oszlop': identifier not found
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,80): error C3861: 'Oszlop': identifier not found
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Allapot.h(118,99): error C2514: 'std::vector': class template cannot be constructed
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(413): message : see declaration of 'std::vector'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(31,1): error C2662: 'allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type std::vector<_Ty,_Alloc>::size(void) noexcept const': cannot convert 'this' pointer from 'std::vector' to 'const std::vector<_Ty,_Alloc> &'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(31,1): message : Reason: cannot convert from 'std::vector' to 'const std::vector<_Ty,_Alloc>'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(31,45): message : Conversion requires a second user-defined-conversion operator or constructor
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(1482,26): message : see declaration of 'std::vector<_Ty,_Alloc>::size'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(33,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(33,1): message : while trying to match the argument list '(std::vector, size_t)'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(33,1): error C2664: 'Oprt::Oprt(const Oprt &)': cannot convert argument 1 from 'size_t' to 'const Oprt &'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(33,1): message : Reason: cannot convert from 'size_t' to 'const Oprt'
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Melysegi.h(33,1): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Oprt.h(59,1): message : see declaration of 'Oprt::Oprt'
+﻿  Allapot.cpp
+  main.cpp
+  Generating Code...
+  Mestint.vcxproj -> C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Debug\Mestint.exe

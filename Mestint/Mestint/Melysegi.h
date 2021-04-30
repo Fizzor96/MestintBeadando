@@ -2,10 +2,13 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
+#include <thread>
+
 #include "Oprt.h"
 #include "Allapot.h"
 #include "Csomopont.h"
-#include <thread>
+#include "Oszlop.h"
 
 class Melysegi
 {
@@ -20,6 +23,9 @@ public:
 
     void Start()
     {
+        Allapot::oszlopok.push_back(Oszlop("A", 150.f));
+        Allapot::oszlopok.push_back(Oszlop("B", 500.f));
+        Allapot::oszlopok.push_back(Oszlop("C", 850.f));
         OperatorokGeneralasa();
         Kereses();
     }
@@ -30,7 +36,7 @@ public:
         {
             for (size_t j = 0; j < Allapot::oszlopok.size(); j++)
             {
-                Oprt ujOperator(i, Allapot::oszlopok[j].nev);
+                Oprt ujOperator(i, j);
                 operatorok.push_back(ujOperator);
             }
         }
@@ -54,13 +60,17 @@ public:
         std::vector<Csomopont> zartcsucsok;
 
         nyiltcsucsok.push_back(Csomopont(Allapot(), -1));
+        if (nyiltcsucsok.size() > 0)
+        {
+            std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
+        }
 
-        std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
 
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
             
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
+            //std::cout << aktualisCsomopont.allapot.ToString() << std::endl;
 
             nyiltcsucsok.pop_back();
 
@@ -78,10 +88,9 @@ public:
                         
                     }
                 }
+                std::cout << aktualisCsomopont.allapot.ToString() << std::endl;
             }
             zartcsucsok.push_back(aktualisCsomopont);
-            //LOG
-            std::cout << nyiltcsucsok.back().allapot.ToString() << std::endl;
         }
 
         if (nyiltcsucsok.size() > 0)

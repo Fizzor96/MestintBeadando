@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 #include "SFML/Graphics.hpp"
+
 #include "Korong.h"
-#include "Allapot.h"
 
 class Oszlop
 {
@@ -15,17 +15,17 @@ public:
 	std::vector<Korong*> korongstack;
 
 public:
-	Oszlop(char name, sf::Vector2f location)
-	{
-		this->nev = name;
-		this->hely = location;
-		this->shape.setSize(sf::Vector2f(10.f, 500.f));
-		this->shape.setFillColor(sf::Color::White);
-		this->shape.setOutlineColor(sf::Color::Black);
-		this->shape.setOutlineThickness(1.f);
-		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		this->shape.setPosition(location);
-	}
+	//Oszlop(char name, sf::Vector2f location)
+	//{
+	//	this->nev = name;
+	//	this->hely = location;
+	//	this->shape.setSize(sf::Vector2f(10.f, 500.f));
+	//	this->shape.setFillColor(sf::Color::White);
+	//	this->shape.setOutlineColor(sf::Color::Black);
+	//	this->shape.setOutlineThickness(1.f);
+	//	this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
+	//	this->shape.setPosition(location);
+	//}
 
 	Oszlop(std::string name, float xlocation)
 	{
@@ -35,10 +35,11 @@ public:
 		this->shape.setOutlineColor(sf::Color::Black);
 		this->shape.setOutlineThickness(1.f);
 		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		this->shape.setPosition(sf::Vector2f(xlocation, (768 - Korong::height)));
+		//this->shape.setPosition(sf::Vector2f(xlocation, (768 - Korong::height)));
+		this->shape.setPosition(sf::Vector2f(xlocation, (800 - Korong::height)));
 	}
 
-	~Oszlop(){}
+	~Oszlop() {}
 
 	void Berak(Korong* korong)
 	{
@@ -86,6 +87,5 @@ public:
 			}
 		}
 	}
-
 };
 

@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "Hanoi.h"
+#include <thread>
+#include "Melysegi.h"
+
 
 
 int main()
@@ -11,7 +13,11 @@ int main()
     window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));
     
     
-    Hanoi* h = new Hanoi();
+    //Hanoi* h = new Hanoi();
+    
+    Melysegi* m = new Melysegi();
+    
+    
 
     while (window.isOpen())
     {
@@ -26,42 +32,49 @@ int main()
             }
 
             //mozgat gombok
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Q)
-            {
-                h->Mozgat("A", "B");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::W)
-            {
-                h->Mozgat("A", "C");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::E)
-            {
-                h->Mozgat("B", "A");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::R)
-            {
-                h->Mozgat("B", "C");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::T)
-            {
-                h->Mozgat("C", "A");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z)
-            {
-                h->Mozgat("C", "B");
-            }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Space)
-            {
-                h->Reset();
-            }
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Q)
+            //{
+            //    h->Mozgat("A", "B");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::W)
+            //{
+            //    h->Mozgat("A", "C");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::E)
+            //{
+            //    h->Mozgat("B", "A");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::R)
+            //{
+            //    h->Mozgat("B", "C");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::T)
+            //{
+            //    h->Mozgat("C", "A");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z)
+            //{
+            //    h->Mozgat("C", "B");
+            //}
+            //if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Space)
+            //{
+            //    h->Reset();
+            //}
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::S)
             {
-                h->DepthSearch();
+                //h->DepthSearch();
+                std::thread* t = new std::thread(&Melysegi::Start, Melysegi());
+                t->detach();
+                t->~thread();
+                //m->Start();
             }
         }
         window.clear(sf::Color(128, 128, 128, 255));
         //Draw here
-        h->Draw(window);
+        for (size_t i = 0; i < m->utvonal.size(); i++)
+        {
+            std::cout << m->utvonal[i].ToString() << std::endl;
+        }
         window.display();
     }
     return 0;
