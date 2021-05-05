@@ -42,6 +42,13 @@ public:
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 180.f));
 		//this->oszlopok[0]->korongstack.push_back(new Korong(c1, 160.f));
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 160.f));
+
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
 	}
 
 	void InitKorongok(std::vector<std::vector<std::string>> utvonal)
