@@ -34,13 +34,14 @@ public:
 			this->szin = c2;
 		}
 
-		this->szelesseg = originalWidth - (refcounter % 6) * 20.f;
+		this->szelesseg = originalWidth - (refcounter % 7) * 20.f;
 
 		this->shape.setFillColor(szin);
 		this->shape.setSize(sf::Vector2f(szelesseg, height));
 		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y / 2));
 		this->shape.setOutlineColor(sf::Color::Black);
 		this->shape.setOutlineThickness(1.f);
+		//std::cout << this->id << std::endl;
 	}
 
 	Korong(sf::Color color, float width)

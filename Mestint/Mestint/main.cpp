@@ -12,6 +12,9 @@ int main()
     window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));
     
     Hanoi* h = new Hanoi();
+    std::thread t1(&Hanoi::DepthSearchInit, h);
+    t1.detach();
+    t1.~thread();
 
     while (window.isOpen())
     {
@@ -56,9 +59,9 @@ int main()
             }
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::S)
             {
-                std::thread t1(&Hanoi::DepthSearch, h);
-                t1.detach();
-                t1.~thread();
+                std::thread t4(&Hanoi::DepthSearch, h);
+                t4.detach();
+                t4.~thread();
             }
         }
         window.clear(sf::Color(128, 128, 128, 255));

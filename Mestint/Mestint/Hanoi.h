@@ -42,9 +42,6 @@ public:
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 180.f));
 		//this->oszlopok[0]->korongstack.push_back(new Korong(c1, 160.f));
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 160.f));
-
-
-
 	}
 
 	void InitKorongok(std::vector<std::vector<std::string>> utvonal)
@@ -66,31 +63,23 @@ public:
 				{
 					this->oszlopok[2]->Berak(new Korong());
 				}
-				//std::this_thread::sleep_for(100ms);
 			}
 			std::this_thread::sleep_for(200ms);
 		}
 	}
 
-	void DepthSearch()
+	void DepthSearchInit()
 	{
-
 		m.Start();
 
 		for (size_t i = 0; i < m.utvonal.size(); i++)
 		{
 			states.push_back(m.utvonal[i].korongok);
 		}
+	}
 
-		//for (size_t i = 0; i < states.size(); i++)
-		//{
-		//	for (size_t j = 0; j < states[i].size(); j++)
-		//	{
-		//		std::cout << states[i][j];
-		//	}
-		//	std::cout << std::endl;
-		//}
-
+	void DepthSearch()
+	{
 		InitKorongok(states);
 	}
 
@@ -235,6 +224,7 @@ public:
 		{
 			this->oszlopok[i]->korongstack.clear();
 		}
+		Korong::refcounter = 0;
 		//Init();
 	}
 };
