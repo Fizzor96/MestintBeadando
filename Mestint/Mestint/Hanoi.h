@@ -3,10 +3,13 @@
 #include <iostream>
 #include <vector>
 #include <thread>
+#include <chrono>
 #include "Oszlop.h"
 #include "Korong.h"
 #include "Melysegi.h"
 #include "Allapot.h"
+
+using namespace std::chrono_literals;
 
 class Hanoi
 {
@@ -33,7 +36,6 @@ public:
 		this->oszlopok.push_back(new Oszlop("B", 500.f));
 		this->oszlopok.push_back(new Oszlop("C", 850.f));
 
-
 		//this->oszlopok[0]->korongstack.push_back(new Korong(c1, 200.f));
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 200.f));
 		//this->oszlopok[0]->korongstack.push_back(new Korong(c1, 180.f));
@@ -41,6 +43,55 @@ public:
 		//this->oszlopok[0]->korongstack.push_back(new Korong(c1, 160.f));
 		//this->oszlopok[1]->korongstack.push_back(new Korong(c2, 160.f));
 
+
+
+	}
+
+	void InitKorongok(std::vector<std::vector<std::string>> utvonal)
+	{
+		for (size_t i = 0; i < utvonal.size(); i++)
+		{
+			Reset();
+			for (size_t j = 0; j < utvonal[i].size(); j++)
+			{
+				if (utvonal[i][j] == "A")
+				{
+					this->oszlopok[0]->Berak(new Korong());
+				}
+				if (utvonal[i][j] == "B")
+				{
+					this->oszlopok[1]->Berak(new Korong());
+				}
+				if (utvonal[i][j] == "C")
+				{
+					this->oszlopok[2]->Berak(new Korong());
+				}
+				//std::this_thread::sleep_for(100ms);
+			}
+			std::this_thread::sleep_for(200ms);
+		}
+	}
+
+	void DepthSearch()
+	{
+
+		m.Start();
+
+		for (size_t i = 0; i < m.utvonal.size(); i++)
+		{
+			states.push_back(m.utvonal[i].korongok);
+		}
+
+		//for (size_t i = 0; i < states.size(); i++)
+		//{
+		//	for (size_t j = 0; j < states[i].size(); j++)
+		//	{
+		//		std::cout << states[i][j];
+		//	}
+		//	std::cout << std::endl;
+		//}
+
+		InitKorongok(states);
 	}
 
 	//void Mozgat2(std::string honnan, std::string hova)
@@ -63,23 +114,6 @@ public:
 
 	~Hanoi() {}
 
-	void DepthSearch()
-	{
-		m.Start();
-		for (size_t i = 0; i < m.utvonal.size(); i++)
-		{
-			states.push_back(m.utvonal[i].korongok);
-		}
-
-		for (size_t i = 0; i < states.size(); i++)
-		{
-			for (size_t j = 0; j < states[i].size(); j++)
-			{
-				std::cout << states[i][j];
-			}
-			std::cout << std::endl;
-		}
-	}
 
 	void Draw(sf::RenderWindow& wd)
 	{
@@ -176,18 +210,18 @@ public:
 	void Init()
 	{
 		// Int korongok
-		this->oszlopok[0]->Berak(new Korong(c1, 200.f));
-		this->oszlopok[0]->Berak(new Korong(c2, 180.f));
-		this->oszlopok[0]->Berak(new Korong(c1, 160.f));
+		//this->oszlopok[0]->Berak(new Korong(c1, 200.f));
+		//this->oszlopok[0]->Berak(new Korong(c2, 180.f));
+		//this->oszlopok[0]->Berak(new Korong(c1, 160.f));
 		//this->oszlopok[0]->Berak(new Korong(c2, 140.f));
 		//this->oszlopok[0]->Berak(new Korong(c1, 120.f));
 		//this->oszlopok[0]->Berak(new Korong(c2, 100.f));
 		//this->oszlopok[0]->Berak(new Korong(c1, 80.f));
 		//this->oszlopok[0]->Berak(new Korong(c2, 60.f));
 
-		this->oszlopok[1]->Berak(new Korong(c2, 200.f));
-		this->oszlopok[1]->Berak(new Korong(c1, 180.f));
-		this->oszlopok[1]->Berak(new Korong(c2, 160.f));
+		//this->oszlopok[1]->Berak(new Korong(c2, 200.f));
+		//this->oszlopok[1]->Berak(new Korong(c1, 180.f));
+		//this->oszlopok[1]->Berak(new Korong(c2, 160.f));
 		//this->oszlopok[1]->Berak(new Korong(c2, 140.f));
 		//this->oszlopok[1]->Berak(new Korong(c1, 120.f));
 		//this->oszlopok[1]->Berak(new Korong(c2, 100.f));
