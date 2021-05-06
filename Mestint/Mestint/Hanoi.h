@@ -40,12 +40,7 @@ public:
 		this->oszlopok.push_back(new Oszlop("B", 500.f));
 		this->oszlopok.push_back(new Oszlop("C", 850.f));
 
-		this->oszlopok[0]->Berak(new Korong());
-		this->oszlopok[0]->Berak(new Korong());
-		this->oszlopok[0]->Berak(new Korong());
-		this->oszlopok[1]->Berak(new Korong());
-		this->oszlopok[1]->Berak(new Korong());
-		this->oszlopok[1]->Berak(new Korong());
+		Default();
 	}
 
 	~Hanoi() {}
@@ -61,6 +56,10 @@ public:
 		}
 
 		InitKorongok(states);
+
+		std::this_thread::sleep_for(3000ms);
+		Reset();
+		Default();
 	}
 
 	void BackTrack()
@@ -76,6 +75,29 @@ public:
 		//std::cout << "States.size = " << states.size() << "\n";
 
 		InitKorongok(states);
+
+		std::this_thread::sleep_for(3000ms);
+		Reset();
+		Default();
+	}
+
+	void ProbaHiba()
+	{
+		back.Start();
+
+		this->states.empty();
+		for (size_t i = 0; i < back.utvonal.size(); i++)
+		{
+			this->states.push_back(back.utvonal[i].korongok);
+		}
+
+		//std::cout << "States.size = " << states.size() << "\n";
+
+		InitKorongok(states);
+
+		std::this_thread::sleep_for(3000ms);
+		Reset();
+		Default();
 	}
 
 	void InitKorongok(std::vector<std::vector<std::string>> utvonal)
@@ -110,6 +132,16 @@ public:
 		}
 		Korong::refcounter = 0;
 		//Init();
+	}
+
+	void Default()
+	{
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
 	}
 
 	void Draw(sf::RenderWindow& wd)
