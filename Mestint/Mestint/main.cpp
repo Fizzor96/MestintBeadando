@@ -30,15 +30,21 @@ int main()
             }
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::A)
             {
-                std::thread t1(&Hanoi::DepthSearch, h);
-                t1.detach();
-                t1.~thread();
+                std::thread t(&Hanoi::DepthSearch, h);
+                t.detach();
+                t.~thread();
             }
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::S)
             {
-                std::thread t1(&Hanoi::BackTrack, h);
-                t1.detach();
-                t1.~thread();
+                std::thread t(&Hanoi::BackTrack, h);
+                t.detach();
+                t.~thread();
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::D)
+            {
+                std::thread t(&Hanoi::BackTrack, h);
+                t.detach();
+                t.~thread();
             }
         }
         window.clear(sf::Color(128, 128, 128, 255));
