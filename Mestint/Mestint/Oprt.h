@@ -7,6 +7,9 @@
 #include "Melysegi.h"
 #include "Csomopont.h"
 
+/// <summary>
+/// Pakolas implementacioja ide kerul
+/// </summary>
 class Oprt
 {
 public:
@@ -31,25 +34,24 @@ public:
 		{
 			ujAllapot.korongok[i] = allapot.korongok[i];
 		}
-		//auto a = ujAllapot.korongok[melyiket];
-		ujAllapot.korongok[melyiket].oszlopid = mire;
+		ujAllapot.korongok[melyiket] = mire;
 		return ujAllapot;
 	}
 
 	bool Elofeltetel(Allapot allapot)
 	{
-		if (allapot.korongok[melyiket].oszlopid == mire)
+		if (std::to_string(melyiket) >= mire)
 		{
 			return false;
 		}
 
-		for (int i = 0; i < melyiket; i++)
-		{
-			if (allapot.korongok[i].Equals(allapot.korongok[melyiket]) || allapot.korongok[i].oszlopid == mire)
-			{
-				return false;
-			}
-		}
+		//for (int i = 0; i < melyiket; i++)
+		//{
+		//	if (allapot.korongok[i] == allapot.korongok[melyiket] || allapot.korongok[i] == mire)
+		//	{
+		//		return false;
+		//	}
+		//}
 		return true;
 	}
 

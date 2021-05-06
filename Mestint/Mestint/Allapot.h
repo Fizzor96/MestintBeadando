@@ -1,89 +1,55 @@
 #pragma once
 
-#include "SFML/Graphics.hpp"
 #include <iostream>
 #include <vector>
-#include <string>
+#include "Hanoi.h"
 
-#include "Oszlop.h"
-#include "Korong.h"
-
-struct Allapot
+class Allapot
 {
 public:
-	//static unsigned int korongszam;
-	//static std::vector<std::string> oszlopok;
-	//std::vector<std::string> korongok;
-
 	static unsigned int korongszam;
+	static std::vector<std::string> oszlopok;
+	std::vector<std::string> korongok;
 
-	static std::vector<Oszlop> oszlopok;
-
-	std::vector<Korong> korongok;
-
-	const sf::Color c1 = sf::Color::Green;
-	const sf::Color c2 = sf::Color::Blue;
-	
 
 public:
-	//Allapot()
-	//{
-	//	for (size_t i = 0; i < korongszam; i++)
-	//	{
-	//		//this->korongok[i] = std::string("A");
-	//		this->korongok.push_back(std::string("A"));
-	//	}
-	//}
+	bool celfeltetel()
+	{
+		for (size_t i = 0; i < korongszam; i++)
+		{
+			if (i % 2 == 0 && korongok[i] != "A")
+			{
+				return false;
+			}
+			if (i % 2 == 1 && korongok[i] != "B")
+			{
+				return false;
+			}
+		}
+
+		return true;	
+	}
 
 	Allapot()
 	{
 		for (size_t i = 0; i < korongszam; i++)
 		{
-			korongok.push_back(Korong(c1, "A"));
-		}	
-	}
-
-	~Allapot() {}
-
-	bool celfeltetel()
-	{
-		for (size_t i = 0; i < korongszam; i++)
-		{
-			if (korongok[i].oszlopid != "C")
+			if (i < korongszam / 2)
 			{
-				return false;
+				this->korongok.push_back(std::string("A"));
+			}
+			else
+			{
+				this->korongok.push_back(std::string("B"));
 			}
 		}
-		return true;
 	}
-
-	//bool celfeltetel()
-	//{
-	//	for (size_t i = 0; i < korongszam / 2; i++)
-	//	{
-	//		if (korongok[i].id % 2 == 1)
-	//		{
-	//			if (korongok[i].oszlopid != "C")
-	//			{
-	//				return false;
-	//			}
-	//		}
-	//		if (korongok[i].id % 2 == 0)
-	//		{
-	//			if (korongok[i].oszlopid != "B")
-	//			{
-	//				return false;
-	//			}
-	//		}
-	//	}
-	//	return true;
-	//}
 
 	bool Equals(Allapot allapot)
 	{
 		for (size_t i = 0; i < korongok.size(); i++)
 		{
-			if (this->korongok[i].Equals(allapot.korongok[i]))
+			if (this->korongok[i] != allapot.korongok[i])
 			{
 				return false;
 			}
@@ -94,27 +60,16 @@ public:
 	std::string ToString()
 	{
 		std::string res = "";
-		res += "(";
+		res += "[";
 		for (size_t i = 0; i < korongszam - 1; i++)
 		{
-			res += korongok[i].oszlopid + " ";
+			res += korongok[i] + " ";
 		}
-		res += korongok[korongszam - 1].oszlopid;
-		res += ")";
+		res += korongok[korongszam - 1];
+		res += "]";
 		return res;
 	}
-
-	Allapot& operator=(const Allapot& other)
-	{
-		if (this == &other)
-		{
-			return *this;
-		}
-		
-		this->korongok = other.korongok;
-		this->korongszam = other.korongszam;
-		this->oszlopok = other.oszlopok;
-		return *this;
-			
-	}
 };
+
+unsigned int Allapot::korongszam = 6;
+std::vector<std::string> Allapot::oszlopok{ "A", "B", "C" };

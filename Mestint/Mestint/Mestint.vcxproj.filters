@@ -27,12 +27,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Allapot.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Korong.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hanoi.h">
@@ -47,20 +41,26 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Allapot.h">
+      <Filter>AllapotTer</Filter>
+    </ClInclude>
+    <ClInclude Include="Csomopont.h">
+      <Filter>AllapotTer</Filter>
+    </ClInclude>
+    <ClInclude Include="Oprt.h">
+      <Filter>AllapotTer</Filter>
+    </ClInclude>
     <ClInclude Include="Kereso.h">
       <Filter>Deprecated</Filter>
     </ClInclude>
-    <ClInclude Include="Allapot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Csomopont.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Oprt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Melysegi.h">
-      <Filter>Header Files</Filter>
+      <Filter>Keresok</Filter>
+    </ClInclude>
+    <ClInclude Include="Backtrack.h">
+      <Filter>Keresok</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
