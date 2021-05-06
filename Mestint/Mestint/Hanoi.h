@@ -17,7 +17,7 @@ class Hanoi
 {
 
 public:
-	std::chrono::milliseconds delay = std::chrono::milliseconds(25);
+	std::chrono::milliseconds delay = std::chrono::milliseconds(5);
 
 	std::vector<Oszlop*> oszlopok;
 	std::vector<Korong*> korongok;

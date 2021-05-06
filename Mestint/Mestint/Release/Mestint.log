@@ -1,11 +1,11 @@
 ﻿  main.cpp
 C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\ProbaHibaRandom.h(22,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(54,21): warning C4834: discarding return value of function with 'nodiscard' attribute
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(71,21): warning C4834: discarding return value of function with 'nodiscard' attribute
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(90,21): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(74,21): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(94,21): warning C4834: discarding return value of function with 'nodiscard' attribute
   Generating code
-  19 of 674 functions ( 2.8%) were compiled, the rest were copied from previous compilation.
-    12 functions were new in current compilation
-    38 functions had inline decision re-evaluated but remain unchanged
+  19 of 680 functions ( 2.8%) were compiled, the rest were copied from previous compilation.
+    6 functions were new in current compilation
+    31 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Mestint.vcxproj -> C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Release\Mestint.exe
