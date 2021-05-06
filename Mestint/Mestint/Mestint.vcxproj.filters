@@ -59,5 +59,8 @@
     <ClInclude Include="Melysegi.h">
       <Filter>Keresok</Filter>
     </ClInclude>
+    <ClInclude Include="Backtrack.h">
+      <Filter>Keresok</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

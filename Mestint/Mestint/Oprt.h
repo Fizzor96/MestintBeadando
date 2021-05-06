@@ -40,18 +40,18 @@ public:
 
 	bool Elofeltetel(Allapot allapot)
 	{
-		if (allapot.korongok[melyiket] == mire)
+		if (std::to_string(melyiket) >= mire)
 		{
 			return false;
 		}
 
-		for (int i = 0; i < melyiket; i++)
-		{
-			if (allapot.korongok[i] == allapot.korongok[melyiket] || allapot.korongok[i] == mire)
-			{
-				return false;
-			}
-		}
+		//for (int i = 0; i < melyiket; i++)
+		//{
+		//	if (allapot.korongok[i] == allapot.korongok[melyiket] || allapot.korongok[i] == mire)
+		//	{
+		//		return false;
+		//	}
+		//}
 		return true;
 	}
 

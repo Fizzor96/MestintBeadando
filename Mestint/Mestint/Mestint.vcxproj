@@ -108,7 +108,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\SFML\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allapot.h" />
+    <ClInclude Include="Backtrack.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Csomopont.h" />
     <ClInclude Include="Globals.h" />

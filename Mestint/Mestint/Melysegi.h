@@ -27,15 +27,15 @@ public:
         std::cout << "Depthsearch has started!" << std::endl;
         OperatorokGeneralasa();
         Kereses();
+        std::cout << "Depthsearch finished with " << this->utvonal.size() << " steps!" << std::endl;
 
-        std::cout << kezdo.ToString() << std::endl;
+        //std::cout << kezdo.ToString() << std::endl;
 
-        for (size_t i = 0; i < utvonal.size(); i++)
-        {
-            std::cout << utvonal[i].ToString() << std::endl;
-        }
+        //for (size_t i = 0; i < utvonal.size(); i++)
+        //{
+        //    std::cout << utvonal[i].ToString() << std::endl;
+        //}
 
-        std::cout << "Depthsearch Done!" << std::endl;
     }
 
     void OperatorokGeneralasa()
@@ -74,7 +74,6 @@ public:
 
         while (nyiltcsucsok.size() > 0 && !nyiltcsucsok.back().allapot.celfeltetel())
         {
-
             Csomopont aktualisCsomopont(nyiltcsucsok.back());
 
             nyiltcsucsok.pop_back();
