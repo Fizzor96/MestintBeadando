@@ -42,7 +42,7 @@ int main()
             }
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::D)
             {
-                std::thread t(&Hanoi::BackTrack, h);
+                std::thread t(&Hanoi::ProbaHiba, h);
                 t.detach();
                 t.~thread();
             }

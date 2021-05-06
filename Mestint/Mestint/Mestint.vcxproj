@@ -161,6 +161,7 @@
     <ClInclude Include="Melysegi.h" />
     <ClInclude Include="Oprt.h" />
     <ClInclude Include="Oszlop.h" />
+    <ClInclude Include="ProbaHibaRandom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

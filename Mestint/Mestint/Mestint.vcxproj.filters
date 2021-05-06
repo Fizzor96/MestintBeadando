@@ -62,5 +62,8 @@
     <ClInclude Include="Backtrack.h">
       <Filter>Keresok</Filter>
     </ClInclude>
+    <ClInclude Include="ProbaHibaRandom.h">
+      <Filter>Keresok</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

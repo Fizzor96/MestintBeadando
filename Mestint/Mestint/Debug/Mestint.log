@@ -1,3 +1,6 @@
 ﻿  main.cpp
-C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Backtrack.h(59,50): warning C4018: '<': signed/unsigned mismatch
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\ProbaHibaRandom.h(22,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(54,21): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(74,21): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Mestint\Hanoi.h(94,21): warning C4834: discarding return value of function with 'nodiscard' attribute
   Mestint.vcxproj -> C:\Users\szoke\Downloads\GitHub\MestintBeadando\Mestint\Debug\Mestint.exe
