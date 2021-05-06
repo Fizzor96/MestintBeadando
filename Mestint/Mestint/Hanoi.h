@@ -9,6 +9,7 @@
 #include "Melysegi.h"
 #include "Allapot.h"
 #include "Backtrack.h"
+#include "ProbaHibaRandom.h"
 
 using namespace std::chrono_literals;
 
@@ -16,13 +17,14 @@ class Hanoi
 {
 
 public:
-	std::chrono::milliseconds delay = std::chrono::milliseconds(10);
+	std::chrono::milliseconds delay = std::chrono::milliseconds(25);
 
 	std::vector<Oszlop*> oszlopok;
 	std::vector<Korong*> korongok;
 	unsigned int korongszam;
 	Melysegi m;
 	Backtrack back;
+	ProbaHiba ph;
 	std::vector<std::vector<std::string>> states;
 
 	std::string a = "A";
@@ -55,6 +57,9 @@ public:
 			this->states.push_back(m.utvonal[i].korongok);
 		}
 
+		m.utvonal.clear();
+		m.operatorok.clear();
+
 		InitKorongok(states);
 
 		std::this_thread::sleep_for(3000ms);
@@ -72,7 +77,8 @@ public:
 			this->states.push_back(back.utvonal[i].korongok);
 		}
 
-		//std::cout << "States.size = " << states.size() << "\n";
+		back.utvonal.clear();
+		back.operatorok.clear();
 
 		InitKorongok(states);
 
@@ -83,15 +89,16 @@ public:
 
 	void ProbaHiba()
 	{
-		back.Start();
+		ph.Start();
 
 		this->states.empty();
-		for (size_t i = 0; i < back.utvonal.size(); i++)
+		for (size_t i = 0; i < ph.utvonal.size(); i++)
 		{
-			this->states.push_back(back.utvonal[i].korongok);
+			this->states.push_back(ph.utvonal[i].korongok);
 		}
 
-		//std::cout << "States.size = " << states.size() << "\n";
+		ph.utvonal.clear();
+		ph.operatorok.clear();
 
 		InitKorongok(states);
 
