@@ -3,24 +3,31 @@
 #include <iostream>
 #include <vector>
 #include <thread>
-#include <string>
-
+#include <chrono>
 #include "Oszlop.h"
 #include "Korong.h"
 #include "Melysegi.h"
+#include "Allapot.h"
+#include "Backtrack.h"
 
-using namespace std;
+using namespace std::chrono_literals;
 
 class Hanoi
 {
 
 public:
-	vector<Oszlop> oszlopok;
-	unsigned int korongszam;
+	std::chrono::milliseconds delay = std::chrono::milliseconds(10);
 
-	char a = 'A';
-	char b = 'B';
-	char c = 'C';
+	std::vector<Oszlop*> oszlopok;
+	std::vector<Korong*> korongok;
+	unsigned int korongszam;
+	Melysegi m;
+	Backtrack back;
+	std::vector<std::vector<std::string>> states;
+
+	std::string a = "A";
+	std::string b = "B";
+	std::string c = "C";
 
 	const sf::Color c1 = sf::Color::Green;
 	const sf::Color c2 = sf::Color::Blue;
@@ -29,142 +36,188 @@ public:
 	Hanoi()
 	{
 		//Init oszlopok
-		this->oszlopok.push_back(Oszlop("A", 150.f));
-		this->oszlopok.push_back(Oszlop("B", 500.f));
-		this->oszlopok.push_back(Oszlop("C", 850.f));
+		this->oszlopok.push_back(new Oszlop("A", 150.f));
+		this->oszlopok.push_back(new Oszlop("B", 500.f));
+		this->oszlopok.push_back(new Oszlop("C", 850.f));
 
-		Init();
-
-		//korongszam = GetKorongszam();
-		std::cout << "Osszkorongszam = " << korongszam << std::endl;
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[0]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
+		this->oszlopok[1]->Berak(new Korong());
 	}
 
 	~Hanoi() {}
 
 	void DepthSearch()
 	{
-		std::thread t1(&Melysegi::Start, Melysegi());
-		t1.detach();
+		m.Start();
+
+		this->states.empty();
+		for (size_t i = 0; i < m.utvonal.size(); i++)
+		{
+			this->states.push_back(m.utvonal[i].korongok);
+		}
+
+		InitKorongok(states);
 	}
 
-	//void Draw(sf::RenderWindow& wd)
-	//{
-	//	//Oszlopok
-	//	for (size_t i = 0; i < oszlopok.size(); i++)
-	//	{
-	//		wd.draw(oszlopok[i]->shape);
-	//	}
-	//	
-	//	for (size_t i = 0; i < this->oszlopok.size(); i++)
-	//	{
-	//		this->oszlopok[i]->DrawKorongok(wd);
-	//	}
-	//}
+	void BackTrack()
+	{
+		back.Start();
 
-	//unsigned int GetKorongszam()
-	//{
-	//	unsigned int szam = 0;
-	//	for (size_t i = 0; i < oszlopok.size(); i++)
-	//	{
-	//		szam += this->oszlopok[i]->korongstack.size();
-	//	}
-	//	return szam;
-	//}
+		this->states.empty();
+		for (size_t i = 0; i < back.utvonal.size(); i++)
+		{
+			this->states.push_back(back.utvonal[i].korongok);
+		}
 
-	//bool Mozgat(std::string honnan, std::string hova)
-	//{
-	//	Oszlop* s = nullptr;
-	//	Oszlop* d = nullptr;
-	//	if (honnan != hova)
-	//	{
-	//		for (size_t i = 0; i < this->oszlopok.size(); i++)
-	//		{
-	//			if (this->oszlopok[i]->nev == honnan)
-	//			{
-	//				s = this->oszlopok[i];
-	//			}
-	//		}
+		//std::cout << "States.size = " << states.size() << "\n";
 
-	//		for (size_t i = 0; i < this->oszlopok.size(); i++)
-	//		{
-	//			if (this->oszlopok[i]->nev == hova && this->oszlopok[i] != nullptr)
-	//			{
-	//				d = this->oszlopok[i];
-	//			}
-	//		}
+		InitKorongok(states);
+	}
 
-	//		if (s != nullptr && d != nullptr)
-	//		{
-	//			if (s->korongstack.size() > 0)
-	//			{
-	//				if (d->korongstack.size() == 0)
-	//				{
-	//					d->Berak(s->Kivesz());
-	//					//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
-	//					return true;
-	//				}
-	//				else
-	//				{
-	//					if (d->korongstack[d->korongstack.size() - 1]->shape.getSize().x >= s->korongstack[s->korongstack.size() - 1]->shape.getSize().x)
-	//					{
-	//						d->Berak(s->Kivesz());
-	//						//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
-	//						return true;
-	//					}
-	//					else
-	//					{
-	//						//std::cout << "Invalid mozgatas!" << std::endl;
-	//						return false;
-	//					}
-	//				}
-	//			}
-	//			else
-	//			{
-	//				//std::cout << "Nincs korong a \'honnan\' rudon!" << std::endl;
-	//				return false;
-	//			}
-	//		}
-	//		else
-	//		{
-	//			//std::cout << "A rudak nem lettek megtalalva!" << std::endl;
-	//			return false;
-	//		}
-	//	}
-	//	else
-	//	{
-	//		std::cout << "Ulj le fiam, 1-es!" << std::endl;
-	//		return false;
-	//	}
-	//}
+	void InitKorongok(std::vector<std::vector<std::string>> utvonal)
+	{
+		for (size_t i = 0; i < utvonal.size(); i++)
+		{
+			Reset();
+			for (size_t j = 0; j < utvonal[i].size(); j++)
+			{
+				if (utvonal[i][j] == "A")
+				{
+					this->oszlopok[0]->Berak(new Korong());
+				}
+				if (utvonal[i][j] == "B")
+				{
+					this->oszlopok[1]->Berak(new Korong());
+				}
+				if (utvonal[i][j] == "C")
+				{
+					this->oszlopok[2]->Berak(new Korong());
+				}
+			}
+			std::this_thread::sleep_for(delay);
+		}
+	}
 
+	void Reset()
+	{
+		for (size_t i = 0; i < this->oszlopok.size(); i++)
+		{
+			this->oszlopok[i]->korongstack.clear();
+		}
+		Korong::refcounter = 0;
+		//Init();
+	}
+
+	void Draw(sf::RenderWindow& wd)
+	{
+		//Oszlopok drawCall
+		for (size_t i = 0; i < oszlopok.size(); i++)
+		{
+			wd.draw(oszlopok[i]->shape);
+		}
+		
+		//Korongok drawCall
+		for (size_t i = 0; i < this->oszlopok.size(); i++)
+		{
+			this->oszlopok[i]->DrawKorongok(wd);
+		}
+	}
+
+	/*
+	bool Mozgat(char honnan, char hova)
+	{
+		Oszlop* s = nullptr;
+		Oszlop* d = nullptr;
+		if (honnan != hova)
+		{
+			for (size_t i = 0; i < this->oszlopok.size(); i++)
+			{
+				if (this->oszlopok[i]->nev == honnan)
+				{
+					s = this->oszlopok[i];
+				}
+			}
+
+			for (size_t i = 0; i < this->oszlopok.size(); i++)
+			{
+				if (this->oszlopok[i]->nev == hova && this->oszlopok[i] != nullptr)
+				{
+					d = this->oszlopok[i];
+				}
+			}
+
+			if (s != nullptr && d != nullptr)
+			{
+				if (s->korongstack.size() > 0)
+				{
+					if (d->korongstack.size() == 0)
+					{
+						d->Berak(s->Kivesz());
+						//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
+						return true;
+					}
+					else
+					{
+						if (d->korongstack[d->korongstack.size() - 1]->shape.getSize().x >= s->korongstack[s->korongstack.size() - 1]->shape.getSize().x)
+						{
+							d->Berak(s->Kivesz());
+							//std::cout << "Korong atrakva: " << s->nev << "-rol " << d->nev << "-re" << std::endl;
+							return true;
+						}
+						else
+						{
+							//std::cout << "Invalid mozgatas!" << std::endl;
+							return false;
+						}
+					}
+				}
+				else
+				{
+					//std::cout << "Nincs korong a \'honnan\' rudon!" << std::endl;
+					return false;
+				}
+			}
+			else
+			{
+				//std::cout << "A rudak nem lettek megtalalva!" << std::endl;
+				return false;
+			}
+		}
+		else
+		{
+			std::cout << "Ulj le fiam, 1-es!" << std::endl;
+			return false;
+		}
+	}
+	*/
+
+	/*
 	void Init()
 	{
-		// Int korongok
-		//this->oszlopok[0]->Berak(new Korong(c1, 200.f));
-		//this->oszlopok[0]->Berak(new Korong(c2, 180.f));
-		//this->oszlopok[0]->Berak(new Korong(c1, 160.f));
-		//this->oszlopok[0]->Berak(new Korong(c2, 140.f));
-		//this->oszlopok[0]->Berak(new Korong(c1, 120.f));
-		//this->oszlopok[0]->Berak(new Korong(c2, 100.f));
-		//this->oszlopok[0]->Berak(new Korong(c1, 80.f));
-		//this->oszlopok[0]->Berak(new Korong(c2, 60.f));
+		//Int korongok
+		this->oszlopok[0]->Berak(new Korong(c1, 200.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 180.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 160.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 140.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 120.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 100.f));
+		this->oszlopok[0]->Berak(new Korong(c1, 80.f));
+		this->oszlopok[0]->Berak(new Korong(c2, 60.f));
 
-		//this->oszlopok[1]->Berak(new Korong(c2, 200.f));
-		//this->oszlopok[1]->Berak(new Korong(c1, 180.f));
-		//this->oszlopok[1]->Berak(new Korong(c2, 160.f));
-		//this->oszlopok[1]->Berak(new Korong(c2, 140.f));
-		//this->oszlopok[1]->Berak(new Korong(c1, 120.f));
-		//this->oszlopok[1]->Berak(new Korong(c2, 100.f));
-		//this->oszlopok[1]->Berak(new Korong(c1, 80.f));
-		//this->oszlopok[1]->Berak(new Korong(c2, 60.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 200.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 180.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 160.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 140.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 120.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 100.f));
+		this->oszlopok[1]->Berak(new Korong(c1, 80.f));
+		this->oszlopok[1]->Berak(new Korong(c2, 60.f));
 	}
+	*/
 
-	//void Reset()
-	//{
-	//	for (size_t i = 0; i < this->oszlopok.size(); i++)
-	//	{
-	//		this->oszlopok[i]->korongstack.clear();
-	//	}
-	//	Init();
-	//}
+
 };

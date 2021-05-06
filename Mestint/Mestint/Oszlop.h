@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 #include "SFML/Graphics.hpp"
-
 #include "Korong.h"
+#include "Globals.h"
 
 class Oszlop
 {
@@ -15,7 +15,7 @@ public:
 	std::vector<Korong*> korongstack;
 
 public:
-	//Oszlop(char name, sf::Vector2f location)
+	//Oszlop(std::string name, sf::Vector2f location)
 	//{
 	//	this->nev = name;
 	//	this->hely = location;
@@ -35,11 +35,10 @@ public:
 		this->shape.setOutlineColor(sf::Color::Black);
 		this->shape.setOutlineThickness(1.f);
 		this->shape.setOrigin(sf::Vector2f(this->shape.getSize().x / 2, this->shape.getSize().y - Korong::height / 2));
-		//this->shape.setPosition(sf::Vector2f(xlocation, (768 - Korong::height)));
-		this->shape.setPosition(sf::Vector2f(xlocation, (800 - Korong::height)));
+		this->shape.setPosition(sf::Vector2f(xlocation, (Global::Height - Korong::height)));
 	}
 
-	~Oszlop() {}
+	~Oszlop(){}
 
 	void Berak(Korong* korong)
 	{
@@ -87,5 +86,6 @@ public:
 			}
 		}
 	}
+
 };
 

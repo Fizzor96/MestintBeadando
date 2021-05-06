@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Allapot.h"
-#include <string>
 
 class Csomopont
 {
@@ -16,9 +15,9 @@ public:
 public:
 	Csomopont() {}
 
-	Csomopont(const Allapot& all, int operatorindex)
+	Csomopont(Allapot allapot, int operatorindex)
 	{
-		this->allapot = all;
+		this->allapot = allapot;
 		this->operatorindex = operatorindex;
 	}
 
@@ -36,22 +35,22 @@ public:
 			koltseg = szulo.koltseg + 1;
 		}
 
-		//this->heurisztika = 0;
-		//for (Korong korong : this->allapot->korongok)
-		//{
-		//	if (korong.oszlopid == "P")
-		//	{
-		//		this->heurisztika += 1;
-		//	}
-		//	else if (korong.oszlopid == "Q")
-		//	{
-		//		this->heurisztika += 2;
-		//	}
-		//	else
-		//	{
-		//		this->heurisztika += 3;
-		//	}
-		//}
+		this->heurisztika = 0;
+		for (std::string korong : this->allapot.korongok)
+		{
+			if (korong == "P")
+			{
+				this->heurisztika += 1;
+			}
+			else if (korong == "Q")
+			{
+				this->heurisztika += 2;
+			}
+			else
+			{
+				this->heurisztika += 3;
+			}
+		}
 	}
 
 	~Csomopont() {}
