@@ -84,7 +84,7 @@ public:
             {
                 utvonal.push_back(cs.allapot);
             }
-            std::cout << utvonal.size() << " " << utvonal.back().ToString() << std::endl;
+            //std::cout << utvonal.size() << " " << utvonal.back().ToString() << std::endl;
         }
 	}
 

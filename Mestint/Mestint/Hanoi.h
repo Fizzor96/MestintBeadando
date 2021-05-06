@@ -16,6 +16,8 @@ class Hanoi
 {
 
 public:
+	std::chrono::milliseconds delay = std::chrono::milliseconds(10);
+
 	std::vector<Oszlop*> oszlopok;
 	std::vector<Korong*> korongok;
 	unsigned int korongszam;
@@ -71,7 +73,7 @@ public:
 			this->states.push_back(back.utvonal[i].korongok);
 		}
 
-		std::cout << "States.size = " << states.size() << "\n";
+		//std::cout << "States.size = " << states.size() << "\n";
 
 		InitKorongok(states);
 	}
@@ -96,7 +98,7 @@ public:
 					this->oszlopok[2]->Berak(new Korong());
 				}
 			}
-			std::this_thread::sleep_for(25ms);
+			std::this_thread::sleep_for(delay);
 		}
 	}
 
