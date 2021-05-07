@@ -11,7 +11,7 @@ set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS} 
 
 
 
-set(SFML_DIR "cmake_modules/SFML/lib/cmake/SFML")
+set(SFML_DIR "cmake_modules/SFML-2.5.1/lib/cmake/SFML")
 find_package (SFML 2.5 COMPONENTS system window graphics audio REQUIRED)
 add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
 target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC "cmake_modules/SFML/include")

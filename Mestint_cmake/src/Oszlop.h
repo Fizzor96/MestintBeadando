@@ -42,7 +42,7 @@ public:
 
 	void Berak(Korong* korong)
 	{
-		if (korongstack.size() == 0)
+		if (korongstack.size() <= 0)
 		{
 			korong->shape.setPosition(this->shape.getPosition().x, this->shape.getPosition().y);
 		}
