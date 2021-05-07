@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.prisma": "prisma",
+        "thread": "cpp",
+        "string": "cpp",
+        "iostream": "cpp",
+        "chrono": "cpp"
+    },
+    "cmake.configureOnOpen": true
+}
