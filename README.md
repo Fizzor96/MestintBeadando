@@ -1,9 +1,18 @@
 # MestintBeadando
 ## Mesterséges Intelligencia Beadandó
-<br>
-1 személyes játék:<br>
--mélységi/szélességi - 1 kereső<br>
--backtrack - 2 kereső (szélességi/mélységi + backtrack)<br>
--mégegy - 3 (szélességi/mélységi + backtrack + bármilyen más)<br>
-2 személyes játék:<br>
+1. személyes játék:<br>
+-mélységi<br>
+-backtrack<br>
+-probahiba<br>
+2. személyes játék:<br>
 -mind1 mivel (negamax, optimális)
+
+How to build (C++ 14 standard, Debug/Release, Win32):
+1. Visual Studio:
+   1. SLN fájl megnyitása
+   2. Target kiválasztása
+   3. F5
+2. CMake (MSVC/MinGW TDM-GCC):
+   1. Compiler kiválasztása
+   2. Target kiválasztása
+   3. Majd standard cmake buildelés
