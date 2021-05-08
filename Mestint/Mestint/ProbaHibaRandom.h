@@ -19,7 +19,7 @@ public:
 public:
 	ProbaHiba() 
 	{
-		srand(time(NULL));
+		//srand(time(NULL));
 	}
 
 	~ProbaHiba() {}
@@ -53,10 +53,13 @@ public:
 	{
 		std::vector<Allapot> ut;
 		ut.push_back(Allapot());
+		srand(time(NULL));
 
 		while (!ut.back().celfeltetel())
 		{
+			
 			int randInd = Random(operatorok.size());
+			std::cout << randInd << std::endl;
 
 			Oprt kivalszottOperator = operatorok[randInd];
 
