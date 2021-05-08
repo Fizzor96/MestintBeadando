@@ -7,7 +7,7 @@
 2. személyes játék:<br>
 -mind1 mivel (negamax, optimális)
 
-How to build (C++ 14 standard, Debug/Release, Win32):
+## How to build (C++ 14 standard, Debug/Release, Win32):
 1. Visual Studio:
    1. SLN fájl megnyitása
    2. Target kiválasztása
