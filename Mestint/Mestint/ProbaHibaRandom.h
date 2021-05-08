@@ -17,7 +17,7 @@ public:
 	std::vector<Oprt> operatorok;
 
 public:
-	ProbaHiba() 
+	ProbaHiba()
 	{
 		//srand(time(NULL));
 	}
@@ -36,7 +36,7 @@ public:
 		Kereses();
 		std::cout << "ProbaHibaRandom finished with " << this->utvonal.size() << " steps!" << std::endl;
 	}
-	
+
 	void OperatorokGeneralasa()
 	{
 		for (size_t i = 0; i < Allapot::korongszam; i++)
@@ -57,9 +57,9 @@ public:
 
 		while (!ut.back().celfeltetel())
 		{
-			
+
 			int randInd = Random(operatorok.size());
-			std::cout << randInd << std::endl;
+			//std::cout << randInd << std::endl;
 
 			Oprt kivalszottOperator = operatorok[randInd];
 
@@ -70,7 +70,7 @@ public:
 			}
 		}
 
-		for(Allapot allapot : ut)
+		for (Allapot allapot : ut)
 		{
 			utvonal.push_back(allapot);
 		}
