@@ -1,7 +1,7 @@
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include "Hanoi.h"
 #include "Globals.h"
-
 
 int main()
 {
@@ -10,8 +10,8 @@ int main()
     window.setFramerateLimit(300);
     window.setVerticalSyncEnabled(false);
     window.setPosition(sf::Vector2i(((sf::VideoMode::getDesktopMode().width / 2) - (window.getSize().x / 2)), ((sf::VideoMode::getDesktopMode().height / 2) - (window.getSize().y / 2))));
-    
-    Hanoi* h = new Hanoi();
+
+    Hanoi *h = new Hanoi();
 
     while (window.isOpen())
     {
